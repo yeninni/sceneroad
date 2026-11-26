@@ -390,9 +390,10 @@ button{font-family:inherit}
 }
 
 @media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .topbar,.sitefoot,.board-hint,.stage,.stage__hint{display:none!important}
   body{background:#fff}
-  .board{width:1370px;margin:0;padding:30px 40px 26px}
+  .board{width:1324px;margin:0;padding:30px 40px 26px}
   .phone{box-shadow:0 0 0 1px #DCE6F0}
-  @page{size:1324px 1240px;margin:0}
+  @page{size:1324px 1134px;margin:0}
 }
