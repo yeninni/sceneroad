@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SceneRoad 씬로드 | K-콘텐츠 촬영지 로컬 투어 플랫폼 프로토타입</title>
+<meta name="description" content="드라마 촬영지와 주변 로컬 상점을 잇는 씬로드(SceneRoad) 앱 프로토타입입니다. 방문객 홈, 소상공인 대시보드, 도보 코스, 로컬 스팟 화면을 직접 눌러 볼 수 있습니다.">
+<meta name="theme-color" content="#38BDF8">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230EA5E9'/%3E%3Cpath d='M9 13h14v9a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2v-9Z' fill='white'/%3E%3Cpath d='M9 10h14v3H9z' fill='white' opacity='.75'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M8 4v5M16 4v5"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="6" r="2.4"/><path d="M8.4 18h4.1a3.5 3.5 0 0 0 0-7h-1a3.5 3.5 0 0 1 0-7h4.1"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="2"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1.6 1.6 0 0 1-1.6 1.6H5.6A1.6 1.6 0 0 1 4 19v-8.5Z"/><path d="M9.5 20.6v-6h5v6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="m15.8 15.8 4 4"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9.5 4 4 6.2v13.3l5.5-2.2 5 2.2 5.5-2.2V4l-5.5 2.2L9.5 4Z"/><path d="M9.5 4v13.3M14.5 6.2v13.3"/></symbol>
+  <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 4.8h12v15.4l-6-4.2-6 4.2V4.8Z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 19.5h16"/><rect x="5.5" y="11" width="3.4" height="6" rx="1.2"/><rect x="10.6" y="6.5" width="3.4" height="10.5" rx="1.2"/><rect x="15.7" y="9" width="3.4" height="8" rx="1.2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9.5" cy="9" r="3.3"/><path d="M3.5 20c0-3.2 2.7-5.2 6-5.2s6 2 6 5.2"/><path d="M16.5 6.4a3 3 0 0 1 0 5.9M17.5 14.9c2 .7 3.4 2.4 3.4 5"/></symbol>
+  <symbol id="i-mega" viewBox="0 0 24 24"><path d="M4 10.5v3a2 2 0 0 0 2 2h1.5l7.5 3.6V6.9L7.5 10.5H6a2 2 0 0 0-2 0Z"/><path d="M18 9.2a4 4 0 0 1 0 5.6M7.5 15.5V19a1.6 1.6 0 0 0 3.2 0v-2.2"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.6" r="3.6"/><path d="M5 20c0-3.4 3-5.6 7-5.6s7 2.2 7 5.6"/></symbol>
+  <symbol id="i-chev-left" viewBox="0 0 24 24"><path d="m14.5 5.5-6.5 6.5 6.5 6.5"/></symbol>
+  <symbol id="i-chev-right" viewBox="0 0 24 24"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4.5 12h15M13.5 6l6 6-6 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 4 2.5 5.2 5.5.8-4 3.9.9 5.6L12 16.8 7.1 19.5l.9-5.6-4-3.9 5.5-.8L12 4Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.6 4.4 4.4L19 7.4"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9.2 17.2h5.6M10 20h4"/><path d="M8.2 13.6a4.8 4.8 0 1 1 7.6 0c-.7.8-1.1 1.6-1.2 2.6H9.4c-.1-1-.5-1.8-1.2-2.6Z"/></symbol>
+  <symbol id="i-walk" viewBox="0 0 24 24"><circle cx="13.2" cy="4.4" r="1.9"/><path d="M12.8 8.2 10 11.4l1.4 3.1-2.2 5.1M12.8 8.2l3 1.9 1.7 3M11.4 14.5l3.4 1.6 1.4 3.4"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3.8" y="9" width="16.4" height="10.8" rx="2"/><path d="M3.8 13h16.4M12 9v10.8"/><path d="M12 9C10.8 6 9.4 4.4 7.8 4.6 6.3 4.8 5.9 7 7.4 8 8.6 8.8 10.4 9 12 9Zm0 0c1.2-3 2.6-4.6 4.2-4.4 1.5.2 1.9 2.4.4 3.4C15.4 8.8 13.6 9 12 9Z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="M3.8 12h16.4M12 3.8c2.4 2.3 3.6 5.1 3.6 8.2s-1.2 5.9-3.6 8.2c-2.4-2.3-3.6-5.1-3.6-8.2S9.6 6.1 12 3.8Z"/></symbol>
+  <symbol id="i-cup" viewBox="0 0 24 24"><path d="M5 7.5h11v6.5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7.5Z"/><path d="M16 9h1.6a2.4 2.4 0 0 1 0 4.8H16M3.6 21h13.8"/></symbol>
+  <symbol id="i-shop" viewBox="0 0 24 24"><path d="M4 9.5h16V19a1.6 1.6 0 0 1-1.6 1.6H5.6A1.6 1.6 0 0 1 4 19V9.5Z"/><path d="M3.2 9.5 5.4 4.4h13.2l2.2 5.1M9.2 20.6v-5.4h5.6v5.4"/></symbol>
+  <symbol id="i-bowl" viewBox="0 0 24 24"><path d="M3.6 11h16.8a8.4 8.4 0 0 1-8.4 8.4A8.4 8.4 0 0 1 3.6 11Z"/><path d="M7 7.6c0-1.4 1.6-1.6 1.6-3M12 7.6c0-1.4 1.6-1.6 1.6-3M17 7.6c0-1.4 1.6-1.6 1.6-3"/></symbol>
+</svg>
+
+<header class="topbar">
+  <a class="brand" href="./" aria-label="SceneRoad 홈">
+    <span class="brand__mark"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.5" width="18" height="13" rx="3.4" fill="#fff"/><path d="M3.4 6.6 17.9 3l1.5 4.4L4.9 11 3.4 6.6Z" fill="#fff" opacity=".55"/><path d="M8.4 8.4l2.2-2.6M12.6 7.4l2.2-2.6" stroke="#0EA5E9" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+    <span class="brand__text">SceneRoad<em>씬로드</em></span>
+  </a>
+
+  <div class="viewswitch" role="tablist" aria-label="화면 보기 방식">
+    <button type="button" class="viewswitch__btn is-active" data-view="overview" role="tab" aria-selected="true" aria-controls="view-overview">전체 한눈에 보기</button>
+    <button type="button" class="viewswitch__btn" data-view="mobile" role="tab" aria-selected="false" aria-controls="view-mobile">모바일로 체험하기</button>
+  </div>
+
+  <p class="topbar__note">제1회 원윈도우 공모전 출품용 프로토타입</p>
+</header>
+
+<main>
+  <!-- 전체 한눈에 보기 -->
+  <section class="view is-active" id="view-overview" role="tabpanel" aria-label="전체 한눈에 보기">
+    <div class="board-wrap" id="boardWrap">
+      <div class="board" id="board">
+
+        <aside class="panel panel--left">
+          <div class="brand2">
+            <span class="brand2__mark"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.5" width="18" height="13" rx="3.4" fill="#fff"/><path d="M3.4 6.6 17.9 3l1.5 4.4L4.9 11 3.4 6.6Z" fill="#fff" opacity=".55"/><path d="M8.4 8.4l2.2-2.6M12.6 7.4l2.2-2.6" stroke="#0EA5E9" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+            <div>
+              <p class="brand2__name">SceneRoad</p>
+              <p class="brand2__sub">씬로드 <span class="vbar"></span> 로컬 투어 플랫폼</p>
+            </div>
+          </div>
+
+          <h1 class="headline">K-콘텐츠 촬영지와<br>로컬 상권을 잇는<br>투어 앱</h1>
+          <p class="lede">드라마 촬영지와 그 주변의 맛집, 카페, 전통찻집, 골목 상점을 한 화면에 모아 보여 줍니다. 외국인 방문객에게는 걷는 코스를, 소상공인에게는 방문 흐름과 운영 팁을 건넵니다.</p>
+
+          <ul class="roles">
+            <li class="role">
+              <span class="role__badge role__badge--v">V</span>
+              <div><p class="role__title">방문객</p><p class="role__desc">촬영지 도보 동선과 주변 로컬 스팟을 한 번에 탐색</p></div>
+            </li>
+            <li class="role">
+              <span class="role__badge role__badge--p">P</span>
+              <div><p class="role__title">소상공인</p><p class="role__desc">시간대별 방문 흐름과 외국인 소비 비중, 운영 팁 확인</p></div>
+            </li>
+            <li class="role">
+              <span class="role__badge role__badge--c">C</span>
+              <div><p class="role__title">지역 상권</p><p class="role__desc">관광객 유입을 로컬 소비로 연결해 골목 상권 활성화</p></div>
+            </li>
+          </ul>
+
+          <div class="flow">
+            <p class="flow__title">사용자 흐름</p>
+            <ol class="flow__list">
+              <li><b>1</b><span>드라마 촬영지 고르기</span></li>
+              <li><b>2</b><span>감고당길 도보 코스 확인</span></li>
+              <li><b>3</b><span>주변 로컬 상점 방문</span></li>
+            </ol>
+          </div>
+
+          <nav class="screenlist" aria-label="화면 바로 열기">
+            <p class="screenlist__title">화면 4개 바로 열기</p>
+            <button type="button" class="screenlist__item" data-open="home"><b>01</b><span>방문객 홈</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
+            <button type="button" class="screenlist__item" data-open="partner"><b>02</b><span>씬로드 파트너</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
+            <button type="button" class="screenlist__item" data-open="course"><b>03</b><span>도보 코스</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
+            <button type="button" class="screenlist__item" data-open="spots"><b>04</b><span>로컬 스팟</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
+          </nav>
+
+        </aside>
+
+        <div class="phones" id="phones"></div>
+
+        <aside class="panel panel--right">
+          <h2 class="panel__title">핵심 기능 4가지</h2>
+          <p class="panel__sub">데이터 결합으로 방문객과 상권을 바로 연결합니다</p>
+
+          <ul class="features">
+            <li class="feature">
+              <span class="feature__num">01</span>
+              <div><p class="feature__title"><svg class="ic"><use href="#i-route"/></svg>동선 추천</p><p class="feature__body">촬영지와 주변 로컬 상점을 연결한 도보 코스를 자동으로 추천합니다.</p></div>
+            </li>
+            <li class="feature">
+              <span class="feature__num">02</span>
+              <div><p class="feature__title"><svg class="ic"><use href="#i-chart"/></svg>유동 분석</p><p class="feature__body">시간대별 방문 흐름과 외국인 소비 비중을 분석해 소상공인 운영 인사이트를 제공합니다.</p></div>
+            </li>
+            <li class="feature">
+              <span class="feature__num">03</span>
+              <div><p class="feature__title"><svg class="ic"><use href="#i-pin"/></svg>로컬 상권 추천</p><p class="feature__body">온미관 안국, 도트블랭킷, 티테라피 행랑점처럼 촬영지 주변의 실제 소상공인 매장을 연결합니다.</p></div>
+            </li>
+            <li class="feature">
+              <span class="feature__num">04</span>
+              <div><p class="feature__title"><svg class="ic"><use href="#i-globe"/></svg>다국어 지원</p><p class="feature__body">영어, 일본어, 중국어로 안내와 메뉴 정보를 바꿔 보여 주어 외국인 방문객의 이용 장벽을 낮춥니다.</p></div>
+            </li>
+          </ul>
+
+          <div class="metricrow">
+            <div><span>보행 점수</span><b>88</b></div>
+            <div><span>외국인 소비</span><b>34.2%</b></div>
+            <div><span>피크 시간</span><b>15시</b></div>
+          </div>
+
+          <div class="datanote">
+            <p class="datanote__title">연계 데이터 기반 설계</p>
+            <p class="datanote__body">원윈도우 개방 데이터(KMDB 영화상세, 서울시 10m 도로 유동인구, 카드 매출, 관광 음식점 흐름 지표)를 결합해 도보 동선과 상권 인사이트를 산출합니다.</p>
+          </div>
+
+          <div class="trytips">
+            <p class="trytips__title">화면 둘러보기</p>
+            <ul>
+              <li>홈 오른쪽 위 EN을 누르면 영문 화면으로 바뀝니다.</li>
+              <li>도보 코스와 로컬 스팟에서 카테고리를 눌러 목록을 걸러 볼 수 있습니다.</li>
+              <li>파트너 화면에서 15시 피크와 오늘의 운영 팁을 확인해 보세요.</li>
+            </ul>
+          </div>
+
+          <div class="effect">
+            <p class="effect__title"><svg class="ic"><use href="#i-walk"/></svg>기대 효과</p>
+            <p class="effect__body">촬영지에 머무는 시간을 늘리고, 도보 5분 안쪽 골목 상점으로 방문을 이어 소상공인 매출을 높입니다.</p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+    <p class="board-hint">폰 화면을 누르면 그 화면을 크게 열어 직접 눌러 볼 수 있습니다.</p>
+  </section>
+
+  <!-- 모바일 체험 -->
+  <section class="view" id="view-mobile" role="tabpanel" aria-label="모바일로 체험하기" hidden>
+    <div class="stage">
+      <div class="stage__rail" role="tablist" aria-label="화면 선택" id="rail"></div>
+      <div class="stage__phone" id="stagePhone"></div>
+    </div>
+    <p class="stage__hint">버튼과 탭, 언어 전환은 실제로 동작합니다. 화면을 위아래로 넘겨 내용을 더 볼 수 있습니다.</p>
+  </section>
+</main>
+
+<footer class="sitefoot">
+  <p>SceneRoad 씬로드 프로토타입. 화면 속 상점과 수치는 기획 검증을 위한 예시 값입니다.</p>
+  <p class="sitefoot__credit">사진: CC0 예시 이미지(rawpixel, Wikimedia Commons) · <a href="https://github.com/yeninni/sceneroad" target="_blank" rel="noopener">GitHub 저장소</a></p>
+</footer>
+
+<!-- ============ 화면 템플릿 ============ -->
+
+<template id="tpl-home">
+  <div class="screen screen--home" data-screen="home">
+    <div class="statusbar"><span>9:41</span><span class="statusbar__icons"><svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="6" width="3" height="6" rx="1"/><rect x="9" y="3.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="1" width="3" height="11" rx="1"/></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 5.6 8.2a3.4 3.4 0 0 1 4.8 0L8 10.6Z"/><path d="M2.8 5.4a7.4 7.4 0 0 1 10.4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg viewBox="0 0 26 12" aria-hidden="true"><rect x="0.5" y="1" width="20" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2.5" y="3" width="14" height="6" rx="1.6"/><rect x="22.5" y="4" width="2.4" height="4" rx="1.2"/></svg></span></div>
+
+    <div class="appbar">
+      <span class="appbar__word">SceneRoad</span>
+      <div class="lang" role="group" aria-label="언어 전환">
+        <button type="button" class="lang__btn" data-lang="en">EN</button>
+        <span class="lang__sep">/</span>
+        <button type="button" class="lang__btn is-active" data-lang="kr">KR</button>
+      </div>
+    </div>
+
+    <div class="scroll">
+      <div class="hero">
+        <span class="hero__badge" data-en="SBS drama">SBS 드라마</span>
+        <p class="hero__title" data-en="Business Proposal filming spot tour">사내맞선 촬영지 투어</p>
+        <p class="hero__sub" data-en="Gamgodang-gil area, Anguk-dong, Jongno-gu, Seoul">서울 종로구 안국동 감고당길 일대</p>
+      </div>
+
+      <nav class="quick" aria-label="주요 메뉴">
+        <button type="button" class="quick__item" data-toast="드라마 목록은 프로토타입에서 예시로만 열립니다.">
+          <span class="quick__icon"><svg class="ic"><use href="#i-film"/></svg></span>
+          <span class="quick__label" data-en="Drama">드라마</span>
+        </button>
+        <button type="button" class="quick__item" data-go="course">
+          <span class="quick__icon"><svg class="ic"><use href="#i-route"/></svg></span>
+          <span class="quick__label" data-en="Walk route">도보 동선</span>
+        </button>
+        <button type="button" class="quick__item" data-go="spots">
+          <span class="quick__icon"><svg class="ic"><use href="#i-pin"/></svg></span>
+          <span class="quick__label" data-en="Local spots">로컬 스팟</span>
+        </button>
+        <button type="button" class="quick__item" data-toast="더보기 메뉴는 프로토타입에서 준비 중입니다.">
+          <span class="quick__icon"><svg class="ic"><use href="#i-grid"/></svg></span>
+          <span class="quick__label" data-en="More">더보기</span>
+        </button>
+      </nav>
+
+      <button type="button" class="rec" data-go="course">
+        <span class="rec__icon"><svg class="ic"><use href="#i-gift"/></svg></span>
+        <span class="rec__text">
+          <span class="rec__title" data-en="Gamgodang-gil recommended tour">감고당길 추천 투어</span>
+          <span class="rec__desc" data-en="Filming spots and nearby local shops (about 1.2km, 20 min)">촬영지와 주변 로컬 상점 (약 1.2km, 20분)</span>
+        </span>
+        <span class="rec__more"><span data-en="All">전체</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></span>
+      </button>
+
+      <div class="section-head">
+        <h3 data-en="Popular local spots nearby">주변 인기 로컬 스팟</h3>
+        <button type="button" class="section-head__more" data-go="spots" data-en="See all">전체 보기</button>
+      </div>
+
+      <div class="spot-grid">
+        <button type="button" class="spot-mini" data-go="spots">
+          <span class="spot-mini__img"><img src="assets/spot-onmigwan.jpg" alt="온미관 안국 한식 상차림" loading="lazy"></span>
+          <span class="spot-mini__name" data-en="Onmigwan">온미관 안국</span>
+          <span class="spot-mini__meta"><i class="rating">★ 4.6</i><span data-en="Korean">한식</span></span>
+        </button>
+        <button type="button" class="spot-mini" data-go="spots">
+          <span class="spot-mini__img"><img src="assets/spot-dotblanket.jpg" alt="도트블랭킷 브런치 팬케이크" loading="lazy"></span>
+          <span class="spot-mini__name" data-en="Dot Blanket">도트블랭킷</span>
+          <span class="spot-mini__meta"><i class="rating">★ 4.8</i><span data-en="Cafe">카페</span></span>
+        </button>
+        <button type="button" class="spot-mini" data-go="spots">
+          <span class="spot-mini__img"><img src="assets/spot-teatherapy.jpg" alt="티테라피 행랑점 한옥 골목" loading="lazy"></span>
+          <span class="spot-mini__name" data-en="Tea Therapy">티테라피 행랑점</span>
+          <span class="spot-mini__meta"><i class="rating">★ 4.6</i><span data-en="Tea house">전통찻집</span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="tabbar" aria-label="하단 메뉴">
+      <button type="button" class="tab is-active" data-go="home"><svg class="ic"><use href="#i-home"/></svg><span data-en="Home">홈</span></button>
+      <button type="button" class="tab" data-go="spots"><svg class="ic"><use href="#i-search"/></svg><span data-en="Explore">탐색</span></button>
+      <button type="button" class="tab" data-go="course"><svg class="ic"><use href="#i-map"/></svg><span data-en="Map">지도</span></button>
+      <button type="button" class="tab" data-toast="저장한 코스는 프로토타입에서 예시로만 열립니다."><svg class="ic"><use href="#i-bookmark"/></svg><span data-en="Saved">저장</span></button>
+    </nav>
+  </div>
+</template>
+
+<template id="tpl-partner">
+  <div class="screen screen--partner" data-screen="partner">
+    <div class="statusbar"><span>9:41</span><span class="statusbar__icons"><svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="6" width="3" height="6" rx="1"/><rect x="9" y="3.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="1" width="3" height="11" rx="1"/></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 5.6 8.2a3.4 3.4 0 0 1 4.8 0L8 10.6Z"/><path d="M2.8 5.4a7.4 7.4 0 0 1 10.4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg viewBox="0 0 26 12" aria-hidden="true"><rect x="0.5" y="1" width="20" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2.5" y="3" width="14" height="6" rx="1.6"/><rect x="22.5" y="4" width="2.4" height="4" rx="1.2"/></svg></span></div>
+
+    <div class="appbar">
+      <span class="appbar__title" data-en="SceneRoad Partner">씬로드 파트너</span>
+      <div class="region">
+        <button type="button" class="region__btn" id="regionBtn" aria-expanded="false"><span data-en="Anguk area">안국 지역</span><svg class="ic ic--xs"><use href="#i-chev-left"/></svg></button>
+        <div class="region__menu" hidden>
+          <button type="button" class="region__item is-active" data-en="Anguk area">안국 지역</button>
+          <button type="button" class="region__item is-off" disabled><span data-en="Bukchon area">북촌 지역</span><em data-en="Soon">준비 중</em></button>
+          <button type="button" class="region__item is-off" disabled><span data-en="Ikseon area">익선동 지역</span><em data-en="Soon">준비 중</em></button>
+          <button type="button" class="region__item is-off" disabled><span data-en="Seochon area">서촌 지역</span><em data-en="Soon">준비 중</em></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll">
+      <div class="kpis">
+        <div class="kpi">
+          <p class="kpi__label" data-en="Walk score (500m)">보행 점수 (500m)</p>
+          <p class="kpi__value">88<span class="kpi__unit" data-en="pt">점</span></p>
+          <p class="kpi__delta"><svg class="ic ic--xs"><use href="#i-arrow-right"/></svg><span data-en="+24% vs last week">전주 대비 +24%</span></p>
+        </div>
+        <div class="kpi">
+          <p class="kpi__label" data-en="Foreign spending share">외국인 소비 비중</p>
+          <p class="kpi__value">34.2<span class="kpi__unit">%</span></p>
+          <p class="kpi__delta"><svg class="ic ic--xs"><use href="#i-arrow-right"/></svg><span data-en="+8.1%p vs last week">전주 대비 +8.1%p</span></p>
+        </div>
+      </div>
+
+      <div class="chartcard">
+        <div class="chartcard__head">
+          <p class="chartcard__title" data-en="Visitor flow by hour">시간대별 방문 흐름</p>
+          <span class="peak" data-en="3 PM peak">15시 피크</span>
+        </div>
+        <div class="chart" role="img" aria-label="11시부터 18시까지 방문 흐름. 15시가 가장 높습니다.">
+          <div class="bar" style="--h:42%"><span>42</span><em>11시</em></div>
+          <div class="bar" style="--h:56%"><span>56</span><em>12시</em></div>
+          <div class="bar" style="--h:63%"><span>63</span><em>13시</em></div>
+          <div class="bar" style="--h:74%"><span>74</span><em>14시</em></div>
+          <div class="bar bar--peak" style="--h:100%"><span>98</span><em>15시</em></div>
+          <div class="bar" style="--h:78%"><span>78</span><em>16시</em></div>
+          <div class="bar" style="--h:66%"><span>66</span><em>17시</em></div>
+          <div class="bar" style="--h:49%"><span>49</span><em>18시</em></div>
+        </div>
+      </div>
+
+      <div class="tips">
+        <p class="tips__title"><svg class="ic"><use href="#i-bulb"/></svg><span data-en="Today's operation tips">오늘의 운영 팁</span></p>
+        <ul>
+          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-en="14:00 to 16:00 is the busiest window of the day.">14시부터 16시가 가장 붐비는 시간대입니다.</span></li>
+          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-en="On days with many foreign visitors, keep the English menu ready.">외국인 방문이 많은 날은 메뉴판 영문 표기를 챙겨 주세요.</span></li>
+          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-en="Telling guests the expected wait keeps satisfaction high.">예상 대기 시간을 안내하면 매장 만족도가 높아집니다.</span></li>
+        </ul>
+      </div>
+      <p class="listnote" data-en="Data based on the third week of November 2026.">데이터 기준 2026년 11월 셋째 주</p>
+    </div>
+
+    <nav class="tabbar" aria-label="하단 메뉴">
+      <button type="button" class="tab is-active" data-toast="대시보드가 열려 있습니다."><svg class="ic"><use href="#i-chart"/></svg><span data-en="Dashboard">대시보드</span></button>
+      <button type="button" class="tab" data-toast="방문자 분석은 프로토타입에서 예시로만 열립니다."><svg class="ic"><use href="#i-users"/></svg><span data-en="Visitors">방문자 분석</span></button>
+      <button type="button" class="tab" data-toast="캠페인 화면은 프로토타입에서 준비 중입니다."><svg class="ic"><use href="#i-mega"/></svg><span data-en="Campaign">캠페인</span></button>
+      <button type="button" class="tab" data-toast="매장 정보 화면은 프로토타입에서 준비 중입니다."><svg class="ic"><use href="#i-user"/></svg><span data-en="Account">내 정보</span></button>
+    </nav>
+  </div>
+</template>
+
+<template id="tpl-course">
+  <div class="screen screen--course" data-screen="course">
+    <div class="statusbar"><span>9:41</span><span class="statusbar__icons"><svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="6" width="3" height="6" rx="1"/><rect x="9" y="3.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="1" width="3" height="11" rx="1"/></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 5.6 8.2a3.4 3.4 0 0 1 4.8 0L8 10.6Z"/><path d="M2.8 5.4a7.4 7.4 0 0 1 10.4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg viewBox="0 0 26 12" aria-hidden="true"><rect x="0.5" y="1" width="20" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2.5" y="3" width="14" height="6" rx="1.6"/><rect x="22.5" y="4" width="2.4" height="4" rx="1.2"/></svg></span></div>
+
+    <div class="appbar appbar--back">
+      <button type="button" class="back" data-go="home" aria-label="뒤로"><svg class="ic"><use href="#i-chev-left"/></svg></button>
+      <span class="appbar__title" data-en="Business Proposal Anguk walk course">사내맞선 안국 도보 코스</span>
+    </div>
+
+    <div class="scroll">
+      <div class="minimap">
+        <span class="minimap__chip" data-en="Anguk (Jongno-gu)">안국 (종로구)</span>
+        <svg viewBox="0 0 252 98" class="minimap__svg" aria-label="안국에서 1번, 2번, 3번 지점으로 이어지는 도보 동선">
+          <defs>
+            <linearGradient id="mmBase" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#F7FCFF"/>
+              <stop offset="1" stop-color="#E4F2FC"/>
+            </linearGradient>
+          </defs>
+          <rect width="252" height="98" fill="url(#mmBase)"/>
+          <rect class="mm-park" x="176" y="4" width="72" height="26" rx="8"/>
+          <path class="mm-road" d="M-6 32h264M-6 72h264M58 -6v110M170 -6v110"/>
+          <rect class="mm-block" x="68" y="38" width="38" height="26" rx="7"/>
+          <rect class="mm-block" x="108" y="78" width="48" height="20" rx="7"/>
+          <rect class="mm-block" x="180" y="58" width="56" height="34" rx="7"/>
+          <path class="mm-path" d="M26 84 84 64 168 34"/>
+          <g class="mm-node"><circle cx="26" cy="84" r="9"/><text x="26" y="84">1</text></g>
+          <g class="mm-node"><circle cx="84" cy="64" r="9"/><text x="84" y="64">2</text></g>
+          <g class="mm-node"><circle cx="168" cy="34" r="9"/><text x="168" y="34">3</text></g>
+        </svg>
+      </div>
+
+      <div class="chips" data-filter="course">
+        <button type="button" class="chip is-active" data-cat="all" data-en="All">전체</button>
+        <button type="button" class="chip" data-cat="korean" data-en="Korean">한식</button>
+        <button type="button" class="chip" data-cat="cafe" data-en="Cafe">카페</button>
+        <button type="button" class="chip" data-cat="tea" data-en="Tea house">전통찻집</button>
+        <button type="button" class="chip" data-cat="shop" data-en="Shop">상점</button>
+      </div>
+
+      <ol class="steps">
+        <li class="step" data-cat="korean">
+          <span class="step__num">1</span>
+          <span class="step__img"><img src="assets/spot-onmigwan.jpg" alt="온미관 안국 한식 상차림" loading="lazy"></span>
+          <span class="step__text">
+            <span class="step__name" data-en="Onmigwan Anguk">온미관 안국</span>
+            <span class="step__meta"><span data-en="Korean">한식점</span><span class="vbar"></span><span data-en="Gamgodang-gil alley">감고당길 골목 안쪽</span></span>
+          </span>
+          <span class="step__walk" data-en="5 min">도보 5분</span>
+        </li>
+        <li class="step" data-cat="cafe">
+          <span class="step__num">2</span>
+          <span class="step__img"><img src="assets/spot-dotblanket.jpg" alt="도트블랭킷 브런치 팬케이크" loading="lazy"></span>
+          <span class="step__text">
+            <span class="step__name" data-en="Dot Blanket">도트블랭킷</span>
+            <span class="step__meta"><span data-en="Brunch cafe">브런치 카페</span><span class="vbar"></span><span data-en="Near Anguk Station">안국역 인근</span></span>
+          </span>
+          <span class="step__walk" data-en="7 min">도보 7분</span>
+        </li>
+        <li class="step" data-cat="tea">
+          <span class="step__num">3</span>
+          <span class="step__img"><img src="assets/spot-teatherapy.jpg" alt="티테라피 행랑점 한옥 골목" loading="lazy"></span>
+          <span class="step__text">
+            <span class="step__name" data-en="Tea Therapy Haengnang">티테라피 행랑점</span>
+            <span class="step__meta"><span data-en="Tea house">한옥 찻집</span><span class="vbar"></span><span data-en="Unbosan-gil alley">운보살길 골목자락</span></span>
+          </span>
+          <span class="step__walk" data-en="4 min">도보 4분</span>
+        </li>
+      </ol>
+      <p class="empty" hidden data-en="No shop is registered on this course yet.">이 코스에 등록된 상점이 아직 없습니다.</p>
+
+      <button type="button" class="cta" id="startWalk">
+        <svg class="ic"><use href="#i-walk"/></svg><span data-en="Start the walk course">도보 동선 시작하기</span>
+      </button>
+    </div>
+
+    <nav class="tabbar" aria-label="하단 메뉴">
+      <button type="button" class="tab is-active" data-go="course"><svg class="ic"><use href="#i-route"/></svg><span data-en="Route">동선</span></button>
+      <button type="button" class="tab" data-go="spots"><svg class="ic"><use href="#i-search"/></svg><span data-en="Explore">탐색</span></button>
+      <button type="button" class="tab" data-go="course"><svg class="ic"><use href="#i-map"/></svg><span data-en="Map">지도</span></button>
+      <button type="button" class="tab" data-toast="저장한 코스는 프로토타입에서 예시로만 열립니다."><svg class="ic"><use href="#i-bookmark"/></svg><span data-en="Saved">저장</span></button>
+    </nav>
+  </div>
+</template>
+
+<template id="tpl-spots">
+  <div class="screen screen--spots" data-screen="spots">
+    <div class="statusbar"><span>9:41</span><span class="statusbar__icons"><svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="6" width="3" height="6" rx="1"/><rect x="9" y="3.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="1" width="3" height="11" rx="1"/></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 5.6 8.2a3.4 3.4 0 0 1 4.8 0L8 10.6Z"/><path d="M2.8 5.4a7.4 7.4 0 0 1 10.4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg viewBox="0 0 26 12" aria-hidden="true"><rect x="0.5" y="1" width="20" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2.5" y="3" width="14" height="6" rx="1.6"/><rect x="22.5" y="4" width="2.4" height="4" rx="1.2"/></svg></span></div>
+
+    <div class="appbar appbar--back">
+      <button type="button" class="back" data-go="home" aria-label="뒤로"><svg class="ic"><use href="#i-chev-left"/></svg></button>
+      <span class="appbar__title" data-en="Local spots around Anguk">안국 주변 로컬 스팟</span>
+    </div>
+
+    <div class="scroll">
+      <p class="listhead" data-en="Within 10 minutes on foot">촬영지에서 걸어서 10분 이내</p>
+      <div class="chips" data-filter="spots">
+        <button type="button" class="chip is-active" data-cat="all" data-en="All">전체</button>
+        <button type="button" class="chip" data-cat="korean" data-en="Korean">한식</button>
+        <button type="button" class="chip" data-cat="cafe" data-en="Cafe">카페</button>
+        <button type="button" class="chip" data-cat="tea" data-en="Tea house">전통찻집</button>
+        <button type="button" class="chip" data-cat="shop" data-en="Shop">상점</button>
+      </div>
+
+      <ul class="spotlist">
+        <li class="spotcard" data-cat="korean">
+          <span class="spotcard__img"><img src="assets/spot-onmigwan.jpg" alt="온미관 안국 한식 상차림" loading="lazy"></span>
+          <div class="spotcard__body">
+            <p class="spotcard__name" data-en="Onmigwan Anguk">온미관 안국</p>
+            <p class="spotcard__meta"><span class="cat" data-en="Korean">한식당</span><span class="vbar"></span><i class="rating">★ 4.6</i><span class="count">(213)</span><span class="vbar"></span><span class="dist">260m</span></p>
+            <p class="spotcard__desc" data-en="A modern Korean dining room tucked in the Gamgodang-gil alley.">감고당길 골목 안쪽에 자리한 모던 한식 다이닝</p>
+          </div>
+        </li>
+        <li class="spotcard" data-cat="cafe">
+          <span class="spotcard__img"><img src="assets/spot-dotblanket.jpg" alt="도트블랭킷 브런치 팬케이크" loading="lazy"></span>
+          <div class="spotcard__body">
+            <p class="spotcard__name" data-en="Dot Blanket">도트블랭킷</p>
+            <p class="spotcard__meta"><span class="cat" data-en="Brunch cafe">브런치 카페</span><span class="vbar"></span><i class="rating">★ 4.8</i><span class="dist">320m</span></p>
+            <p class="spotcard__desc" data-en="European brunch and plated desserts in a bright local cafe.">유럽식 브런치와 플레이티드 디저트가 인기 있는 로컬 카페</p>
+          </div>
+        </li>
+        <li class="spotcard" data-cat="tea">
+          <span class="spotcard__img"><img src="assets/spot-teatherapy.jpg" alt="티테라피 행랑점 한옥 골목" loading="lazy"></span>
+          <div class="spotcard__body">
+            <p class="spotcard__name" data-en="Tea Therapy Haengnang">티테라피 행랑점</p>
+            <p class="spotcard__meta"><span class="cat" data-en="Tea house">한옥 찻집</span><span class="vbar"></span><i class="rating">★ 4.6</i><span class="dist">380m</span></p>
+            <p class="spotcard__desc" data-en="A quiet hanok tea house at the end of the Unbosan-gil alley.">운보살길 골목자락, 고즈넉한 한옥 전통 찻집</p>
+          </div>
+        </li>
+      </ul>
+      <p class="empty" hidden data-en="No shop is registered here yet. It will open soon.">이 지역에 등록된 상점이 아직 없습니다. 곧 추가됩니다.</p>
+      <p class="listnote" data-en="Opening hours may change on the day of your visit.">영업시간은 방문 당일 매장 사정에 따라 달라질 수 있습니다.</p>
+    </div>
+
+    <nav class="tabbar" aria-label="하단 메뉴">
+      <button type="button" class="tab is-active" data-go="spots"><svg class="ic"><use href="#i-pin"/></svg><span data-en="Local spots">로컬 스팟</span></button>
+      <button type="button" class="tab" data-go="course"><svg class="ic"><use href="#i-map"/></svg><span data-en="Map">지도</span></button>
+      <button type="button" class="tab" data-toast="리뷰 화면은 프로토타입에서 예시로만 열립니다."><svg class="ic"><use href="#i-star"/></svg><span data-en="Reviews">리뷰</span></button>
+      <button type="button" class="tab" data-toast="저장한 스팟은 프로토타입에서 예시로만 열립니다."><svg class="ic"><use href="#i-bookmark"/></svg><span data-en="Saved">저장</span></button>
+    </nav>
+  </div>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>
