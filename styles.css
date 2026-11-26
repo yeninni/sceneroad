@@ -532,7 +532,7 @@ button{font-family:inherit;text-rendering:inherit}
   .stage__phone .phone{transform:scale(1)}
 }
 
-@page{size:1324px 1250px;margin:0}
+@page{size:1324px 1336px;margin:0}
 
 @media print{
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
