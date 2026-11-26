@@ -80,7 +80,7 @@
       emptySpots: '조건에 맞는 상점이 아직 없습니다. 곧 추가됩니다.',
       spotNote: '영업시간과 영어 메뉴 운영은 방문 당일 매장 사정에 따라 달라질 수 있습니다.',
       courseNote: '도보 시간은 현장 사정에 따라 조금 달라질 수 있습니다.',
-      startWalk: '도보 동선 시작하기', walking: '동선 안내 중 1/3',
+      startWalk: '도보 동선 시작하기', walking: '동선 안내 중 {n}/3', stopWalk: '동선 안내 멈추기', replayWalk: '동선 다시 보기',
       guideDefault: '취향을 눌러 봐. 코스랑 스팟을 바로 바꿔 줄게.',
       match: '추천 이유', walkUnit: '도보 {n}분',
       summary: '{spots}곳, 도보 {min}분, 영어 메뉴 {en}곳',
@@ -133,7 +133,7 @@
       emptySpots: 'Nothing matches this filter yet. More shops are coming.',
       spotNote: 'Opening hours and English menus can change on the day of your visit.',
       courseNote: 'Walking times can shift a little on the day of your visit.',
-      startWalk: 'Start the walk course', walking: 'Route running, stop 1 of 3',
+      startWalk: 'Start the walk course', walking: 'Route preview · Stop {n} of 3', stopWalk: 'Stop route preview', replayWalk: 'Replay route',
       guideDefault: 'Tap a taste and I will swap the course and spots for you.',
       match: 'Why this pick', walkUnit: '{n} min walk',
       summary: '{spots} stops, {min} min on foot, {en} with English menu',
@@ -186,7 +186,7 @@
       emptySpots: '条件に合うお店はまだありません。順次追加します。',
       spotNote: '営業時間と英語メニューは当日の店舗の状況で変わる場合があります。',
       courseNote: '徒歩時間は当日の状況で少し変わることがあります。',
-      startWalk: '徒歩コースを開始', walking: '案内中 1/3',
+      startWalk: '徒歩コースを開始', walking: '案内中 {n}/3', stopWalk: '案内を停止', replayWalk: 'コースをもう一度見る',
       guideDefault: '好みを押してみて。コースとスポットをすぐ変えるよ。',
       match: 'おすすめ理由', walkUnit: '徒歩{n}分',
       summary: '{spots}か所、徒歩{min}分、英語メニュー{en}か所',
@@ -233,7 +233,12 @@
   };
 
   /* ---------------- 상태 ---------------- */
-  var state = { lang: 'kr', tastes: [], menuOnly: false, walking: false, filter: { course: 'all', spots: 'all' }, current: 'home' };
+  var state = { lang: 'kr', tastes: [], menuOnly: false, walkElapsed: null, filter: { course: 'all', spots: 'all' }, current: 'home' };
+  var WALK_STOP_MS = 500;
+  var WALK_LEG_MS = 1950;
+  var WALK_TOTAL_MS = WALK_LEG_MS * 2;
+  var walkFrame;
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   function T(key) { return I18N[state.lang][key]; }
   function tasteData(id) { return I18N[state.lang].taste[id]; }
@@ -328,11 +333,47 @@
         '</li>';
     }).join('');
 
+    renderWalk(screen);
+    applyFilter(screen, 'course');
+  }
+
+  function renderWalk(screen) {
+    var elapsed = state.walkElapsed;
+    var active = elapsed !== null && elapsed < WALK_TOTAL_MS;
+    var stop = Math.floor((elapsed || 0) / WALK_LEG_MS);
+    var legElapsed = (elapsed || 0) % WALK_LEG_MS;
+    var fraction = active && !reducedMotion.matches
+      ? Math.max(0, (legElapsed - WALK_STOP_MS) / (WALK_LEG_MS - WALK_STOP_MS))
+      : 0;
+    var nodes = screen.querySelectorAll('.mm-node');
+    var from = nodes[stop].querySelector('circle');
+    var to = nodes[Math.min(stop + 1, nodes.length - 1)].querySelector('circle');
+    var x = from.cx.baseVal.value + (to.cx.baseVal.value - from.cx.baseVal.value) * fraction;
+    var y = from.cy.baseVal.value + (to.cy.baseVal.value - from.cy.baseVal.value) * fraction;
+    var guide = screen.querySelector('.mm-guide');
+    guide.setAttribute('transform', 'translate(' + x + ' ' + y + ')');
+    guide.classList.toggle('is-moving', fraction > 0);
+    nodes.forEach(function (node, index) {
+      node.classList.toggle('is-current', index === stop);
+    });
+
     var cta = screen.querySelector('#startWalk');
     var label = cta.querySelector('[data-walk-label]');
-    if (label) label.textContent = state.walking ? T('walking') : T('startWalk');
-    cta.classList.toggle('is-on', state.walking);
-    applyFilter(screen, 'course');
+    var text = active ? fmt(T('walking'), { n: stop + 1 }) : T(elapsed === null ? 'startWalk' : 'replayWalk');
+    if (label.textContent !== text) {
+      label.textContent = text;
+      cta.setAttribute('aria-label', active ? text + ' · ' + T('stopWalk') : text);
+    }
+    cta.classList.toggle('is-on', active);
+  }
+
+  function renderWalkMaps() {
+    document.querySelectorAll('.screen--course').forEach(renderWalk);
+  }
+
+  function resetWalk() {
+    cancelAnimationFrame(walkFrame);
+    state.walkElapsed = null;
   }
 
   function renderSpots(screen) {
@@ -554,6 +595,7 @@
   }
 
   function toggleTaste(id, btn) {
+    var previousTaste = primaryTaste();
     var i = state.tastes.indexOf(id);
     if (i >= 0) {
       state.tastes.splice(i, 1);
@@ -561,18 +603,29 @@
       if (state.tastes.length >= 3) { toastIn(btn, T('toastLimit')); return; }
       state.tastes.push(id);
     }
+    if (previousTaste !== primaryTaste()) resetWalk();
     applyAll();
   }
 
   function toggleWalk(btn) {
-    state.walking = !state.walking;
-    var first = courseSpots()[0];
-    if (state.walking) {
-      toastIn(btn, fmt(T('toastWalk'), { name: first.name[state.lang], n: first.walk }));
-    } else {
+    if (state.walkElapsed !== null && state.walkElapsed < WALK_TOTAL_MS) {
+      resetWalk();
+      renderWalkMaps();
       toastIn(btn, T('toastWalkOff'));
+      return;
     }
-    renderCourse(btn.closest('.screen'));
+
+    var first = courseSpots()[0];
+    toastIn(btn, fmt(T('toastWalk'), { name: first.name[state.lang], n: first.walk }));
+    btn.closest('.screen').querySelector('.minimap').scrollIntoView({ block: 'nearest' });
+    var startedAt = performance.now();
+    state.walkElapsed = 0;
+    renderWalkMaps();
+    walkFrame = requestAnimationFrame(function advance(now) {
+      state.walkElapsed = Math.min(Math.max(now - startedAt, 0), WALK_TOTAL_MS);
+      renderWalkMaps();
+      if (state.walkElapsed < WALK_TOTAL_MS) walkFrame = requestAnimationFrame(advance);
+    });
   }
 
   function toggleRegion(btn) {
