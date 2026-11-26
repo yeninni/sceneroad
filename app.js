@@ -131,7 +131,7 @@
       emptySpots: 'Nothing matches this filter yet. More shops are coming.',
       spotNote: 'Opening hours and English menus can change on the day of your visit.',
       courseNote: 'Walking times can shift a little on the day of your visit.',
-      startWalk: 'Start the walk course', walking: 'Route preview · Stop {n} of 3', stopWalk: 'Stop route preview', replayWalk: 'Replay route',
+      startWalk: 'Start the walk course', walking: 'Route preview, stop {n} of 3', stopWalk: 'Stop route preview', replayWalk: 'Replay route',
       guideDefault: 'Tap a taste and I will swap the course and spots for you.',
       match: 'Why this pick', walkUnit: '{n} min walk',
       summary: '{spots} stops, {min} min on foot, {en} with English menu',
@@ -358,7 +358,7 @@
     var text = active ? fmt(T('walking'), { n: stop + 1 }) : T(elapsed === null ? 'startWalk' : 'replayWalk');
     if (label.textContent !== text) {
       label.textContent = text;
-      cta.setAttribute('aria-label', active ? text + ' · ' + T('stopWalk') : text);
+      cta.setAttribute('aria-label', active ? text + ', ' + T('stopWalk') : text);
     }
     cta.classList.toggle('is-on', active);
   }
