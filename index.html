@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Fredoka:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Silkscreen:wght@400;700&display=swap">
-<link rel="stylesheet" href="styles.css?v=20261127e">
+<link rel="stylesheet" href="styles.css?v=20261127f">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230EA5E9'/%3E%3Crect x='9' y='11' width='14' height='11' rx='2' fill='%23fff'/%3E%3Crect x='13' y='13' width='6' height='6' rx='1' fill='%2338BDF8'/%3E%3Crect x='12' y='8' width='4' height='3' fill='%23fff'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -157,6 +157,11 @@
               </li>
             </ul>
 
+            <div class="datanote">
+              <p class="datanote__title">연계 데이터 기반 설계</p>
+              <p class="datanote__body">원윈도우 개방 데이터(KMDB 영화상세, 서울시 10m 도로 유동인구, 카드 매출, 관광 음식점 흐름 지표)를 결합해 도보 동선과 한산한 방문 시간을 산출합니다.</p>
+            </div>
+
             <div class="metricrow">
               <div><span>지금 혼잡도</span><b>여유</b></div>
               <div><span>추천 방문</span><b>11시</b></div>
@@ -178,7 +183,7 @@
               <span class="quotecard__tag">혼잡도 낮은 때</span>
             </div>
             <div class="quotecard__main">
-              <img src="assets/pixel-guide-camera.png" alt="" class="quotecard__fig" loading="lazy" decoding="async">
+              <img src="assets/pixel-guide-camera.png" alt="씬로 픽셀 가이드" class="quotecard__fig" loading="lazy" decoding="async">
               <div class="bubble">
                 <p class="bubble__text">“사진은 다섯 시가 제일 예뻐. <em>세 시만 피하면 돼.</em>”</p>
               </div>
@@ -187,11 +192,6 @@
           </div>
 
           <div class="datastack">
-            <div class="datanote">
-              <p class="datanote__title">연계 데이터 기반 설계</p>
-              <p class="datanote__body">원윈도우 개방 데이터(KMDB 영화상세, 서울시 10m 도로 유동인구, 카드 매출, 관광 음식점 흐름 지표)를 결합해 도보 동선과 한산한 방문 시간을 산출합니다.</p>
-            </div>
-
             <div class="trytips">
               <p class="trytips__title">화면 둘러보기</p>
               <ul>
@@ -441,6 +441,26 @@
       <p class="empty" hidden data-t="emptyCourse">이 코스에 등록된 상점이 아직 없습니다.</p>
       <p class="listnote listnote--course" data-t="courseNote">도보 시간은 현장 사정에 따라 조금 달라질 수 있습니다.</p>
 
+      <div class="coursesum" data-course-sum>
+        <div class="coursesum__stats">
+          <div class="coursesum__stat">
+            <span class="coursesum__label" data-t="sumDist">총 거리</span>
+            <span class="coursesum__value"><b data-sum="dist">1.4</b><em>km</em></span>
+          </div>
+          <i class="coursesum__div" aria-hidden="true"></i>
+          <div class="coursesum__stat">
+            <span class="coursesum__label" data-t="sumWalk">도보 시간</span>
+            <span class="coursesum__value"><b data-sum="min">14</b><em data-t="unitMin">분</em></span>
+          </div>
+          <i class="coursesum__div" aria-hidden="true"></i>
+          <div class="coursesum__stat">
+            <span class="coursesum__label" data-t="sumEn">영어 메뉴</span>
+            <span class="coursesum__value"><b data-sum="en">3</b><em data-t="unitPlace">곳</em></span>
+          </div>
+        </div>
+        <p class="coursesum__best"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg><span data-sum="best">추천 방문 오전 11시</span></p>
+      </div>
+
       <button type="button" class="cta" id="startWalk">
         <svg class="ic"><use href="#i-walk"/></svg><span data-walk-label>도보 동선 시작하기</span>
       </button>
@@ -493,6 +513,6 @@
   </div>
 </template>
 
-<script src="app.js?v=20261127e"></script>
+<script src="app.js?v=20261127f"></script>
 </body>
 </html>

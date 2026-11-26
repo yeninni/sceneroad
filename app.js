@@ -80,6 +80,8 @@
       emptySpots: '조건에 맞는 상점이 아직 없습니다. 곧 추가됩니다.',
       spotNote: '영업시간과 영어 메뉴 운영은 방문 당일 매장 사정에 따라 달라질 수 있습니다.',
       courseNote: '도보 시간은 현장 사정에 따라 조금 달라질 수 있습니다.',
+      sumDist: '총 거리', sumWalk: '도보 시간', sumEn: '영어 메뉴', unitMin: '분', unitPlace: '곳',
+      sumBest: '추천 방문 {time}',
       startWalk: '도보 동선 시작하기', walking: '동선 안내 중 {n}/3', stopWalk: '동선 안내 멈추기', replayWalk: '동선 다시 보기',
       guideDefault: '취향을 눌러 봐. 코스랑 스팟을 바로 바꿔 줄게.',
       match: '추천 이유', walkUnit: '도보 {n}분',
@@ -114,11 +116,11 @@
       toastWalk: '안국 도보 코스를 시작합니다. 1번 {name}까지 도보 {n}분입니다.',
       toastWalkOff: '동선 안내를 멈췄습니다.',
       taste: {
-        drama: { label: 'K-드라마 로맨스', badge: 'SBS 드라마', title: '사내맞선 로맨스 촬영지 코스', sub: '서울 종로구 안국동 감고당길, 도보 1.4km', guide: '사내맞선 촬영지부터 안내할게. 3화 엔딩 골목이 여기서 5분이야.', course: '사내맞선 안국 로맨스 코스', lead: '촬영지 세 곳만 순서대로 골랐어.', best: '오전 11시', crowdTitle: '사내맞선 골목, 11시가 한산해요', crowd: '15시엔 단체 관광객이 몰려요. 11시에 가면 3화 엔딩 골목을 줄 안 서고 찍을 수 있어요.' },
-        food: { label: '골목 맛집', badge: '로컬 맛집', title: '감고당길 골목 맛집 산책', sub: '안국역 3번 출구에서 도보 2분', guide: '골목 맛집부터 갈까? 점심엔 만두집 줄이 짧아.', course: '감고당길 골목 맛집 코스', lead: '배고플 때 걷기 좋은 순서야.', best: '오후 2시', crowdTitle: '만두집은 2시가 지나면 줄이 빠져요', crowd: '12시부터 13시 30분까지 대기가 20분이에요. 14시가 지나면 바로 들어가요.' },
-        hanok: { label: '한옥 카페', badge: '한옥 카페', title: '한옥 카페에서 보내는 느린 오후', sub: '운보살길 골목자락, 도보 1.1km', guide: '한옥 찻집부터 천천히 걷자. 오후 두 시엔 창가 자리가 비어.', course: '한옥 카페 느린 오후 코스', lead: '앉아서 쉬는 시간까지 넣었어.', best: '오후 2시', crowdTitle: '한옥 찻집은 2시에 창가가 비어요', crowd: '16시엔 만석이라 대기가 길어요. 14시에 가면 창가 자리를 잡기 좋아요.' },
-        solo: { label: '혼자 걷기', badge: '혼자 여행', title: '혼자 걷기 좋은 안국 골목', sub: '조용한 오전 시간 추천, 도보 1.3km', guide: '사람 적은 길로만 골랐어. 혼자 걷기 좋은 순서야.', course: '혼자 걷는 안국 골목 코스', lead: '붐비는 시간은 피해서 짰어.', best: '오전 10시', crowdTitle: '혼자 걷기엔 10시가 가장 조용해요', crowd: '11시 전 골목은 사람이 적어요. 사진도 다른 사람 없이 찍기 좋아요.' },
-        friends: { label: '친구와 함께', badge: '친구와 함께', title: '친구와 사진 찍기 좋은 코스', sub: '필름 카메라 대여까지, 도보 1.5km', guide: '사진 찍기 좋은 자리부터 모았어. 셋이 서면 딱 맞아.', course: '친구와 사진 찍는 코스', lead: '사진 남기기 좋은 곳 위주야.', best: '오후 5시', crowdTitle: '사진은 5시 노을이 제일 예뻐요', crowd: '15시는 줄이 길어요. 17시에 가면 골목이 노을빛으로 물들어요.' }
+        drama: { km: 1.4, label: 'K-드라마 로맨스', badge: 'SBS 드라마', title: '사내맞선 로맨스 촬영지 코스', sub: '서울 종로구 안국동 감고당길, 도보 1.4km', guide: '사내맞선 촬영지부터 안내할게. 3화 엔딩 골목이 여기서 5분이야.', course: '사내맞선 안국 로맨스 코스', lead: '촬영지 세 곳만 순서대로 골랐어.', best: '오전 11시', crowdTitle: '사내맞선 골목, 11시가 한산해요', crowd: '15시엔 단체 관광객이 몰려요. 11시에 가면 3화 엔딩 골목을 줄 안 서고 찍을 수 있어요.' },
+        food: { km: 1.1, label: '골목 맛집', badge: '로컬 맛집', title: '감고당길 골목 맛집 산책', sub: '안국역 3번 출구에서 도보 2분', guide: '골목 맛집부터 갈까? 점심엔 만두집 줄이 짧아.', course: '감고당길 골목 맛집 코스', lead: '배고플 때 걷기 좋은 순서야.', best: '오후 2시', crowdTitle: '만두집은 2시가 지나면 줄이 빠져요', crowd: '12시부터 13시 30분까지 대기가 20분이에요. 14시가 지나면 바로 들어가요.' },
+        hanok: { km: 1.1, label: '한옥 카페', badge: '한옥 카페', title: '한옥 카페에서 보내는 느린 오후', sub: '운보살길 골목자락, 도보 1.1km', guide: '한옥 찻집부터 천천히 걷자. 오후 두 시엔 창가 자리가 비어.', course: '한옥 카페 느린 오후 코스', lead: '앉아서 쉬는 시간까지 넣었어.', best: '오후 2시', crowdTitle: '한옥 찻집은 2시에 창가가 비어요', crowd: '16시엔 만석이라 대기가 길어요. 14시에 가면 창가 자리를 잡기 좋아요.' },
+        solo: { km: 1.3, label: '혼자 걷기', badge: '혼자 여행', title: '혼자 걷기 좋은 안국 골목', sub: '조용한 오전 시간 추천, 도보 1.3km', guide: '사람 적은 길로만 골랐어. 혼자 걷기 좋은 순서야.', course: '혼자 걷는 안국 골목 코스', lead: '붐비는 시간은 피해서 짰어.', best: '오전 10시', crowdTitle: '혼자 걷기엔 10시가 가장 조용해요', crowd: '11시 전 골목은 사람이 적어요. 사진도 다른 사람 없이 찍기 좋아요.' },
+        friends: { km: 1.5, label: '친구와 함께', badge: '친구와 함께', title: '친구와 사진 찍기 좋은 코스', sub: '필름 카메라 대여까지, 도보 1.5km', guide: '사진 찍기 좋은 자리부터 모았어. 셋이 서면 딱 맞아.', course: '친구와 사진 찍는 코스', lead: '사진 남기기 좋은 곳 위주야.', best: '오후 5시', crowdTitle: '사진은 5시 노을이 제일 예뻐요', crowd: '15시는 줄이 길어요. 17시에 가면 골목이 노을빛으로 물들어요.' }
       },
       heroDefault: { badge: 'SBS 드라마', title: '사내맞선 촬영지 투어', sub: '서울 종로구 안국동 감고당길, 도보 1.4km' }
     },
@@ -131,6 +133,8 @@
       emptySpots: 'Nothing matches this filter yet. More shops are coming.',
       spotNote: 'Opening hours and English menus can change on the day of your visit.',
       courseNote: 'Walking times can shift a little on the day of your visit.',
+      sumDist: 'Distance', sumWalk: 'Walk time', sumEn: 'EN menu', unitMin: 'min', unitPlace: 'spots',
+      sumBest: 'Best around {time}',
       startWalk: 'Start the walk course', walking: 'Route preview, stop {n} of 3', stopWalk: 'Stop route preview', replayWalk: 'Replay route',
       guideDefault: 'Tap a taste and I will swap the course and spots for you.',
       match: 'Why this pick', walkUnit: '{n} min walk',
@@ -166,11 +170,11 @@
       toastWalk: 'Walk route started. {name} is {n} minutes away.',
       toastWalkOff: 'Route guidance stopped.',
       taste: {
-        drama: { label: 'K-drama romance', badge: 'SBS drama', title: 'Business Proposal romance route', sub: 'Gamgodang-gil, Anguk-dong, Seoul, 1.4 km on foot', guide: 'I will start with the Business Proposal spots. The ep.3 ending alley is 5 minutes away.', course: 'Business Proposal Anguk romance', lead: 'Three filming spots, in walking order.', best: '11 AM', crowdTitle: 'Quiet before the tour groups', crowd: 'Groups arrive at 3 PM. At 11 AM you can shoot the ep.3 alley with no queue.' },
-        food: { label: 'Alley food', badge: 'Local food', title: 'Gamgodang-gil food alley walk', sub: '2 min from Anguk Station exit 3', guide: 'Food first? The dumpling queue is short before noon.', course: 'Gamgodang-gil food alley course', lead: 'An order that works when you are hungry.', best: '2 PM', crowdTitle: 'The dumpling queue clears after 2 PM', crowd: 'Expect a 20 minute wait from noon to 1:30 PM. After 2 PM you walk right in.' },
-        hanok: { label: 'Hanok cafe', badge: 'Hanok cafe', title: 'A slow afternoon in a hanok cafe', sub: 'Unbosan-gil alley, 1.1 km on foot', guide: 'Let us start with the hanok tea house. Window seats open around 2 PM.', course: 'Hanok cafe slow afternoon', lead: 'I left time to sit and rest.', best: '2 PM', crowdTitle: 'Window seats open at 2 PM', crowd: 'By 4 PM the tea house is full. At 2 PM you can still take a window seat.' },
-        solo: { label: 'Solo walk', badge: 'Solo trip', title: 'Quiet Anguk alleys for a solo walk', sub: 'Best in the quiet morning, 1.3 km on foot', guide: 'I picked the streets with the fewest people. A good order to walk alone.', course: 'Solo walk in Anguk alleys', lead: 'I kept you out of the busy hours.', best: '10 AM', crowdTitle: '10 AM is the quietest for a solo walk', crowd: 'Before 11 AM the alleys are nearly empty, so your photos come out without a crowd.' },
-        friends: { label: 'With friends', badge: 'With friends', title: 'A route made for photos with friends', sub: 'Film camera rental included, 1.5 km on foot', guide: 'I gathered the photogenic corners first. Three people fit perfectly.', course: 'Photo walk with friends', lead: 'Mostly places worth a photo.', best: '5 PM', crowdTitle: 'Golden hour at 5 PM is best for photos', crowd: 'The queue is long at 3 PM. At 5 PM the alley turns golden and the light is soft.' }
+        drama: { km: 1.4, label: 'K-drama romance', badge: 'SBS drama', title: 'Business Proposal romance route', sub: 'Gamgodang-gil, Anguk-dong, Seoul, 1.4 km on foot', guide: 'I will start with the Business Proposal spots. The ep.3 ending alley is 5 minutes away.', course: 'Business Proposal Anguk romance', lead: 'Three filming spots, in walking order.', best: '11 AM', crowdTitle: 'Quiet before the tour groups', crowd: 'Groups arrive at 3 PM. At 11 AM you can shoot the ep.3 alley with no queue.' },
+        food: { km: 1.1, label: 'Alley food', badge: 'Local food', title: 'Gamgodang-gil food alley walk', sub: '2 min from Anguk Station exit 3', guide: 'Food first? The dumpling queue is short before noon.', course: 'Gamgodang-gil food alley course', lead: 'An order that works when you are hungry.', best: '2 PM', crowdTitle: 'The dumpling queue clears after 2 PM', crowd: 'Expect a 20 minute wait from noon to 1:30 PM. After 2 PM you walk right in.' },
+        hanok: { km: 1.1, label: 'Hanok cafe', badge: 'Hanok cafe', title: 'A slow afternoon in a hanok cafe', sub: 'Unbosan-gil alley, 1.1 km on foot', guide: 'Let us start with the hanok tea house. Window seats open around 2 PM.', course: 'Hanok cafe slow afternoon', lead: 'I left time to sit and rest.', best: '2 PM', crowdTitle: 'Window seats open at 2 PM', crowd: 'By 4 PM the tea house is full. At 2 PM you can still take a window seat.' },
+        solo: { km: 1.3, label: 'Solo walk', badge: 'Solo trip', title: 'Quiet Anguk alleys for a solo walk', sub: 'Best in the quiet morning, 1.3 km on foot', guide: 'I picked the streets with the fewest people. A good order to walk alone.', course: 'Solo walk in Anguk alleys', lead: 'I kept you out of the busy hours.', best: '10 AM', crowdTitle: '10 AM is the quietest for a solo walk', crowd: 'Before 11 AM the alleys are nearly empty, so your photos come out without a crowd.' },
+        friends: { km: 1.5, label: 'With friends', badge: 'With friends', title: 'A route made for photos with friends', sub: 'Film camera rental included, 1.5 km on foot', guide: 'I gathered the photogenic corners first. Three people fit perfectly.', course: 'Photo walk with friends', lead: 'Mostly places worth a photo.', best: '5 PM', crowdTitle: 'Golden hour at 5 PM is best for photos', crowd: 'The queue is long at 3 PM. At 5 PM the alley turns golden and the light is soft.' }
       },
       heroDefault: { badge: 'SBS drama', title: 'Business Proposal filming spot tour', sub: 'Gamgodang-gil, Anguk-dong, Seoul, 1.4 km on foot' }
     },
@@ -183,6 +187,8 @@
       emptySpots: '条件に合うお店はまだありません。順次追加します。',
       spotNote: '営業時間と英語メニューは当日の店舗の状況で変わる場合があります。',
       courseNote: '徒歩時間は当日の状況で少し変わることがあります。',
+      sumDist: '総距離', sumWalk: '徒歩時間', sumEn: '英語メニュー', unitMin: '分', unitPlace: 'か所',
+      sumBest: '{time}がおすすめ',
       startWalk: '徒歩コースを開始', walking: '案内中 {n}/3', stopWalk: '案内を停止', replayWalk: 'コースをもう一度見る',
       guideDefault: '好みを押してみて。コースとスポットをすぐ変えるよ。',
       match: 'おすすめ理由', walkUnit: '徒歩{n}分',
@@ -218,11 +224,11 @@
       toastWalk: '安国の徒歩コースを開始します。1番{name}まで徒歩{n}分です。',
       toastWalkOff: '案内を止めました。',
       taste: {
-        drama: { label: 'Kドラマ ロマンス', badge: 'SBSドラマ', title: '社内お見合い ロマンスロケ地コース', sub: 'ソウル 安国洞 カムゴダンギル、徒歩1.4km', guide: '社内お見合いのロケ地から案内するね。3話ラストの路地はここから徒歩5分。', course: '社内お見合い 安国ロマンス', lead: 'ロケ地3か所だけを順番に選んだよ。', best: '午前11時', crowdTitle: '社内お見合いの路地は11時がすいています', crowd: '15時は団体客で混みます。11時なら3話ラストの路地も並ばずに撮れます。' },
-        food: { label: '路地グルメ', badge: '地元グルメ', title: 'カムゴダンギル 路地グルメ散歩', sub: '安国駅3番出口から徒歩2分', guide: '路地グルメから行く？お昼前はマンドゥ屋の列が短いよ。', course: 'カムゴダンギル グルメ散歩', lead: 'お腹が空いた時にいい順番だよ。', best: '午後2時', crowdTitle: 'マンドゥ屋は2時を過ぎると列が短くなります', crowd: '12時から13時30分は待ち20分。14時以降はすぐ入れます。' },
-        hanok: { label: '韓屋カフェ', badge: '韓屋カフェ', title: '韓屋カフェでゆっくり午後', sub: '雲宝山キルの路地、徒歩1.1km', guide: '韓屋の茶屋からゆっくり歩こう。午後2時なら窓際が空いてるよ。', course: '韓屋カフェ ゆっくり午後', lead: '座って休む時間も入れてあるよ。', best: '午後2時', crowdTitle: '韓屋茶屋は2時に窓際が空きます', crowd: '16時は満席で待ちます。14時なら窓際を取りやすいです。' },
-        solo: { label: 'ひとり歩き', badge: 'ひとり旅', title: 'ひとり歩きにいい安国の路地', sub: '静かな午前がおすすめ、徒歩1.3km', guide: '人が少ない道だけを選んだよ。ひとりで歩くのにいい順番。', course: 'ひとり安国路地散歩', lead: '混む時間は避けて組んだよ。', best: '午前10時', crowdTitle: 'ひとり歩きは10時が一番静かです', crowd: '11時前の路地は人が少なく、写真も人を入れずに撮れます。' },
-        friends: { label: '友達と一緒', badge: '友達と一緒', title: '友達と写真を撮るコース', sub: 'フィルムカメラのレンタルも、徒歩1.5km', guide: '写真が映える場所から集めたよ。3人で立つとちょうどいい。', course: '友達と写真散歩', lead: '写真を残したい場所中心だよ。', best: '午後5時', crowdTitle: '写真は5時の夕暮れが一番きれいです', crowd: '15時は列が長いです。17時なら路地が夕焼け色になります。' }
+        drama: { km: 1.4, label: 'Kドラマ ロマンス', badge: 'SBSドラマ', title: '社内お見合い ロマンスロケ地コース', sub: 'ソウル 安国洞 カムゴダンギル、徒歩1.4km', guide: '社内お見合いのロケ地から案内するね。3話ラストの路地はここから徒歩5分。', course: '社内お見合い 安国ロマンス', lead: 'ロケ地3か所だけを順番に選んだよ。', best: '午前11時', crowdTitle: '社内お見合いの路地は11時がすいています', crowd: '15時は団体客で混みます。11時なら3話ラストの路地も並ばずに撮れます。' },
+        food: { km: 1.1, label: '路地グルメ', badge: '地元グルメ', title: 'カムゴダンギル 路地グルメ散歩', sub: '安国駅3番出口から徒歩2分', guide: '路地グルメから行く？お昼前はマンドゥ屋の列が短いよ。', course: 'カムゴダンギル グルメ散歩', lead: 'お腹が空いた時にいい順番だよ。', best: '午後2時', crowdTitle: 'マンドゥ屋は2時を過ぎると列が短くなります', crowd: '12時から13時30分は待ち20分。14時以降はすぐ入れます。' },
+        hanok: { km: 1.1, label: '韓屋カフェ', badge: '韓屋カフェ', title: '韓屋カフェでゆっくり午後', sub: '雲宝山キルの路地、徒歩1.1km', guide: '韓屋の茶屋からゆっくり歩こう。午後2時なら窓際が空いてるよ。', course: '韓屋カフェ ゆっくり午後', lead: '座って休む時間も入れてあるよ。', best: '午後2時', crowdTitle: '韓屋茶屋は2時に窓際が空きます', crowd: '16時は満席で待ちます。14時なら窓際を取りやすいです。' },
+        solo: { km: 1.3, label: 'ひとり歩き', badge: 'ひとり旅', title: 'ひとり歩きにいい安国の路地', sub: '静かな午前がおすすめ、徒歩1.3km', guide: '人が少ない道だけを選んだよ。ひとりで歩くのにいい順番。', course: 'ひとり安国路地散歩', lead: '混む時間は避けて組んだよ。', best: '午前10時', crowdTitle: 'ひとり歩きは10時が一番静かです', crowd: '11時前の路地は人が少なく、写真も人を入れずに撮れます。' },
+        friends: { km: 1.5, label: '友達と一緒', badge: '友達と一緒', title: '友達と写真を撮るコース', sub: 'フィルムカメラのレンタルも、徒歩1.5km', guide: '写真が映える場所から集めたよ。3人で立つとちょうどいい。', course: '友達と写真散歩', lead: '写真を残したい場所中心だよ。', best: '午後5時', crowdTitle: '写真は5時の夕暮れが一番きれいです', crowd: '15時は列が長いです。17時なら路地が夕焼け色になります。' }
       },
       heroDefault: { badge: 'SBSドラマ', title: '社内お見合い ロケ地ツアー', sub: 'ソウル 安国洞 カムゴダンギル、徒歩1.4km' }
     }
@@ -333,6 +339,23 @@
     applyFilter(screen, 'course');
   }
 
+  function updateCourseSummary(screen) {
+    var card = screen.querySelector('[data-course-sum]');
+    if (!card) return;
+    var t = primaryTaste() || 'drama';
+    var all = courseSpots();
+    var vis = all.filter(function (s) { return state.filter.course === 'all' || s.cat === state.filter.course; });
+    var allMin = all.reduce(function (n, x) { return n + x.walk; }, 0);
+    var min = vis.reduce(function (n, x) { return n + x.walk; }, 0);
+    var km = tasteData(t).km || 1.4;
+    if (allMin > 0) km = Math.round(km * (min / allMin) * 10) / 10;
+    card.hidden = vis.length === 0;
+    card.querySelector('[data-sum="dist"]').textContent = km.toFixed(1);
+    card.querySelector('[data-sum="min"]').textContent = min;
+    card.querySelector('[data-sum="en"]').textContent = vis.filter(function (s) { return s.menuEn; }).length;
+    card.querySelector('[data-sum="best"]').textContent = fmt(T('sumBest'), { time: tasteData(t).best });
+  }
+
   function renderWalk(screen) {
     var elapsed = state.walkElapsed;
     var active = elapsed !== null && elapsed < WALK_TOTAL_MS;
@@ -430,6 +453,7 @@
     });
     var empty = screen.querySelector('.empty');
     if (empty) empty.hidden = visible > 0;
+    if (kind === 'course') updateCourseSummary(screen);
   }
 
   function renderScreen(screen) {
