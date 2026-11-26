@@ -158,7 +158,7 @@ button{font-family:inherit;text-rendering:inherit}
 .quotecard__head{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .quotecard__tag{font-family:var(--f-body);font-size:8px;font-weight:800;color:var(--sky-700);background:#fff;border:1px solid var(--sky-200);border-radius:999px;padding:3px 7px}
 .quotecard__main{display:flex;align-items:flex-end;gap:9px;margin-top:10px}
-.quotecard__fig{width:62px;height:auto;flex:0 0 auto;margin-bottom:-5px;display:block}
+.quotecard__fig{width:62px;height:82px;object-fit:contain;object-position:center bottom;flex:0 0 auto;margin-bottom:-5px;display:block}
 .bubble{position:relative;flex:1 1 auto;background:#fff;border:1px solid var(--sky-100);border-radius:13px;padding:9px 11px;box-shadow:0 12px 22px -22px rgba(2,132,199,.9)}
 .bubble::before{content:"";position:absolute;left:-5px;bottom:12px;width:9px;height:9px;background:#fff;border-left:1px solid var(--sky-100);border-bottom:1px solid var(--sky-100);transform:rotate(45deg)}
 .bubble__text{margin:0;font-size:10.4px;line-height:1.55;font-weight:700;color:var(--ink-2);letter-spacing:-.02em}
@@ -236,11 +236,11 @@ button{font-family:inherit;text-rendering:inherit}
     linear-gradient(135deg,#38BDF8,#0EA5E9 58%,#0284C7);
   color:#fff;box-shadow:0 16px 26px -20px rgba(2,132,199,.98);
 }
-.hero__body{position:relative;z-index:2;padding-right:46px}
+.hero__body{position:relative;z-index:2;padding-right:50px}
 .hero__badge{display:inline-block;font-family:var(--f-disp);font-size:7.5px;font-weight:700;letter-spacing:.04em;background:rgba(255,255,255,.24);border-radius:999px;padding:3px 7px}
 .hero__title{margin:7px 0 4px;font-family:var(--f-disp);font-size:13.4px;font-weight:800;letter-spacing:-.025em;word-spacing:.06em;line-height:1.32}
 .hero__sub{margin:0;font-size:8.6px;font-weight:500;opacity:.94;line-height:1.45}
-.hero__figure{position:absolute;right:8px;bottom:1px;width:42px;height:auto;z-index:1;filter:drop-shadow(0 6px 10px rgba(2,84,132,.35))}
+.hero__figure{position:absolute;right:8px;bottom:1px;width:49px;height:auto;z-index:1;filter:drop-shadow(0 6px 10px rgba(2,84,132,.35))}
 
 .taste{
   border:1px solid var(--line);border-radius:15px;padding:7px 10px 7px;background:#fff;
@@ -336,9 +336,8 @@ button{font-family:inherit;text-rendering:inherit}
 .bar--peak::before{background:linear-gradient(180deg,#38BDF8,#0EA5E9);box-shadow:0 8px 14px -8px rgba(14,165,233,.95)}
 .bar--peak em{color:var(--sky-600);font-weight:800}
 
-.insight{display:flex;gap:8px;border:1px solid var(--sky-100);border-radius:14px;padding:11px 12px;background:linear-gradient(135deg,#F4FBFF,#FFFFFF 70%)}
-.insight__fig{width:24px;height:24px;border-radius:8px;background:#fff;display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--sky-100);flex:0 0 auto;overflow:hidden}
-.insight__fig img{width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block}
+.insight{display:flex;align-items:center;gap:8px;border:1px solid var(--sky-100);border-radius:14px;padding:9px 12px;background:linear-gradient(135deg,#F4FBFF,#FFFFFF 70%)}
+.insight__fig{width:37px;height:48px;object-fit:contain;flex:0 0 auto}
 .insight__title{margin:5px 0 0;font-size:9.6px;font-weight:800;letter-spacing:-.02em}
 .insight__text{margin:3px 0 0;font-size:8.4px;line-height:1.5;color:var(--sub);font-weight:600}
 
@@ -359,10 +358,18 @@ button{font-family:inherit;text-rendering:inherit}
 .mm-node circle{fill:#fff;stroke:var(--sky-500);stroke-width:1.8}
 .mm-node text{fill:var(--sky-700);font-family:var(--f-disp);font-size:8px;font-weight:800;text-anchor:middle;dominant-baseline:central}
 .mm-guide{shape-rendering:crispEdges}
+@media (prefers-reduced-motion:no-preference){
+  .screen--course:has(.cta.is-on) .mm-guide{animation:guide-step .48s steps(2,end) both}
+}
+@keyframes guide-step{
+  50%{transform:translate(-3px,-2px)}
+  100%{transform:translateX(-6px)}
+}
 .minimap__chip{position:absolute;top:8px;left:8px;font-size:7.5px;font-weight:800;color:var(--sky-700);background:#fff;border:1px solid var(--sky-200);border-radius:999px;padding:3px 8px}
 
 .guide--course{margin-top:0;background:linear-gradient(135deg,#F2FAFF,#FFFFFF 80%)}
 .guide--course .guide__avatar{width:21px;height:21px}
+.guide--course .guide__avatar img{object-position:center top}
 .guide--course .guide__text{line-height:1.5}
 
 .chips{display:flex;flex-wrap:wrap;gap:4px;padding:1px 0 2px}
@@ -406,7 +413,9 @@ button{font-family:inherit;text-rendering:inherit}
 .listnote{margin:2px 0 0;font-size:7.8px;line-height:1.5;color:var(--sub-2);font-weight:500;text-align:center}
 
 /* 로컬 스팟 */
-.listhead-row{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.listhead-row{display:flex;align-items:center;gap:6px}
+.listhead__guide{width:33px;height:33px;object-fit:cover;object-position:center 10%;flex:0 0 auto}
+.listhead-row .enonly{margin-left:auto;flex:0 0 auto}
 .enonly{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:3px 7px 3px 4px;cursor:pointer;font-size:7.6px;font-weight:800;color:var(--sub);transition:.16s}
 .enonly__badge{font-family:var(--f-px);font-size:6.4px;letter-spacing:.04em;background:var(--line-2);color:var(--sub-2);border-radius:3px;padding:2.5px 3px 1.5px}
 .enonly.is-on{border-color:var(--sky-300);color:var(--sky-700);background:var(--sky-50)}
