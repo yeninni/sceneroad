@@ -3,17 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SceneRoad 씬로드 | K-콘텐츠 촬영지 로컬 투어 플랫폼 프로토타입</title>
-<meta name="description" content="드라마 촬영지와 주변 로컬 상점을 잇는 씬로드(SceneRoad) 앱 프로토타입입니다. 방문객 홈, 소상공인 대시보드, 도보 코스, 로컬 스팟 화면을 직접 눌러 볼 수 있습니다.">
+<title>SceneRoad 씬로드 | K-콘텐츠 촬영지 로컬 투어 앱 프로토타입</title>
+<meta name="description" content="드라마 촬영지와 주변 로컬 상점을 잇는 씬로드(SceneRoad) 앱 프로토타입입니다. 여행 취향을 고르면 픽셀 가이드가 맞춤 코스와 로컬 스팟을 안내합니다.">
 <meta name="theme-color" content="#38BDF8">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="styles.css?v=20261126b">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230EA5E9'/%3E%3Cpath d='M9 13h14v9a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2v-9Z' fill='white'/%3E%3Cpath d='M9 10h14v3H9z' fill='white' opacity='.75'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Silkscreen:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+<link rel="stylesheet" href="styles.css?v=20261126d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230EA5E9'/%3E%3Crect x='9' y='11' width='14' height='11' rx='2' fill='%23fff'/%3E%3Crect x='13' y='13' width='6' height='6' rx='1' fill='%2338BDF8'/%3E%3Crect x='12' y='8' width='4' height='3' fill='%23fff'/%3E%3C/svg%3E">
 </head>
 <body>
 
 <svg class="sprite" aria-hidden="true" focusable="false">
+<symbol id="px-guide" viewBox="0 0 30 38" shape-rendering="crispEdges"><rect x="11" y="1" width="8" height="1" fill="#16233C"/><rect x="10" y="2" width="1" height="1" fill="#16233C"/><rect x="11" y="2" width="8" height="1" fill="#38BDF8"/><rect x="19" y="2" width="1" height="1" fill="#16233C"/><rect x="9" y="3" width="1" height="1" fill="#16233C"/><rect x="10" y="3" width="2" height="1" fill="#38BDF8"/><rect x="12" y="3" width="4" height="1" fill="#BAE6FD"/><rect x="16" y="3" width="4" height="1" fill="#38BDF8"/><rect x="20" y="3" width="1" height="1" fill="#16233C"/><rect x="9" y="4" width="1" height="1" fill="#16233C"/><rect x="10" y="4" width="1" height="1" fill="#38BDF8"/><rect x="11" y="4" width="3" height="1" fill="#BAE6FD"/><rect x="14" y="4" width="6" height="1" fill="#38BDF8"/><rect x="20" y="4" width="1" height="1" fill="#16233C"/><rect x="9" y="5" width="1" height="1" fill="#16233C"/><rect x="10" y="5" width="10" height="1" fill="#38BDF8"/><rect x="20" y="5" width="1" height="1" fill="#16233C"/><rect x="7" y="6" width="3" height="1" fill="#16233C"/><rect x="10" y="6" width="10" height="1" fill="#38BDF8"/><rect x="20" y="6" width="3" height="1" fill="#16233C"/><rect x="6" y="7" width="1" height="1" fill="#16233C"/><rect x="7" y="7" width="1" height="1" fill="#38BDF8"/><rect x="8" y="7" width="4" height="1" fill="#BAE6FD"/><rect x="12" y="7" width="11" height="1" fill="#38BDF8"/><rect x="23" y="7" width="1" height="1" fill="#16233C"/><rect x="7" y="8" width="1" height="1" fill="#16233C"/><rect x="8" y="8" width="14" height="1" fill="#0EA5E9"/><rect x="22" y="8" width="1" height="1" fill="#16233C"/><rect x="8" y="9" width="2" height="1" fill="#16233C"/><rect x="10" y="9" width="10" height="1" fill="#F2BE9C"/><rect x="20" y="9" width="2" height="1" fill="#16233C"/><rect x="9" y="10" width="1" height="1" fill="#16233C"/><rect x="10" y="10" width="10" height="1" fill="#FFD9BE"/><rect x="20" y="10" width="1" height="1" fill="#16233C"/><rect x="9" y="11" width="1" height="1" fill="#16233C"/><rect x="10" y="11" width="10" height="1" fill="#FFD9BE"/><rect x="20" y="11" width="1" height="1" fill="#16233C"/><rect x="9" y="12" width="1" height="1" fill="#16233C"/><rect x="10" y="12" width="2" height="1" fill="#FFD9BE"/><rect x="12" y="12" width="2" height="1" fill="#16233C"/><rect x="14" y="12" width="2" height="1" fill="#FFD9BE"/><rect x="16" y="12" width="2" height="1" fill="#16233C"/><rect x="18" y="12" width="2" height="1" fill="#FFD9BE"/><rect x="20" y="12" width="1" height="1" fill="#16233C"/><rect x="9" y="13" width="1" height="1" fill="#16233C"/><rect x="10" y="13" width="2" height="1" fill="#FFD9BE"/><rect x="12" y="13" width="2" height="1" fill="#16233C"/><rect x="14" y="13" width="2" height="1" fill="#FFD9BE"/><rect x="16" y="13" width="2" height="1" fill="#16233C"/><rect x="18" y="13" width="2" height="1" fill="#FFD9BE"/><rect x="20" y="13" width="1" height="1" fill="#16233C"/><rect x="9" y="14" width="1" height="1" fill="#16233C"/><rect x="10" y="14" width="10" height="1" fill="#FFD9BE"/><rect x="20" y="14" width="1" height="1" fill="#16233C"/><rect x="9" y="15" width="1" height="1" fill="#16233C"/><rect x="10" y="15" width="1" height="1" fill="#FFD9BE"/><rect x="11" y="15" width="2" height="1" fill="#FFAFC5"/><rect x="13" y="15" width="4" height="1" fill="#FFD9BE"/><rect x="17" y="15" width="2" height="1" fill="#FFAFC5"/><rect x="19" y="15" width="1" height="1" fill="#FFD9BE"/><rect x="20" y="15" width="1" height="1" fill="#16233C"/><rect x="9" y="16" width="1" height="1" fill="#16233C"/><rect x="10" y="16" width="4" height="1" fill="#FFD9BE"/><rect x="14" y="16" width="2" height="1" fill="#16233C"/><rect x="16" y="16" width="4" height="1" fill="#FFD9BE"/><rect x="20" y="16" width="1" height="1" fill="#16233C"/><rect x="9" y="17" width="1" height="1" fill="#16233C"/><rect x="10" y="17" width="10" height="1" fill="#FFD9BE"/><rect x="20" y="17" width="1" height="1" fill="#16233C"/><rect x="9" y="18" width="1" height="1" fill="#16233C"/><rect x="10" y="18" width="2" height="1" fill="#F2BE9C"/><rect x="12" y="18" width="6" height="1" fill="#FFD9BE"/><rect x="18" y="18" width="2" height="1" fill="#F2BE9C"/><rect x="20" y="18" width="1" height="1" fill="#16233C"/><rect x="10" y="19" width="3" height="1" fill="#16233C"/><rect x="13" y="19" width="3" height="1" fill="#F2BE9C"/><rect x="16" y="19" width="4" height="1" fill="#16233C"/><rect x="8" y="20" width="2" height="1" fill="#16233C"/><rect x="10" y="20" width="10" height="1" fill="#D8ECFA"/><rect x="20" y="20" width="2" height="1" fill="#16233C"/><rect x="7" y="21" width="1" height="1" fill="#16233C"/><rect x="8" y="21" width="2" height="1" fill="#FFFFFF"/><rect x="10" y="21" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="21" width="1" height="1" fill="#FBBF24"/><rect x="12" y="21" width="6" height="1" fill="#FFFFFF"/><rect x="18" y="21" width="1" height="1" fill="#FBBF24"/><rect x="19" y="21" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="21" width="2" height="1" fill="#FFFFFF"/><rect x="22" y="21" width="1" height="1" fill="#16233C"/><rect x="7" y="22" width="1" height="1" fill="#16233C"/><rect x="8" y="22" width="2" height="1" fill="#FFFFFF"/><rect x="10" y="22" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="22" width="1" height="1" fill="#3F4E66"/><rect x="12" y="22" width="1" height="1" fill="#FBBF24"/><rect x="13" y="22" width="4" height="1" fill="#3F4E66"/><rect x="17" y="22" width="1" height="1" fill="#FBBF24"/><rect x="18" y="22" width="1" height="1" fill="#3F4E66"/><rect x="19" y="22" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="22" width="2" height="1" fill="#FFFFFF"/><rect x="22" y="22" width="1" height="1" fill="#16233C"/><rect x="7" y="23" width="1" height="1" fill="#16233C"/><rect x="8" y="23" width="2" height="1" fill="#FFFFFF"/><rect x="10" y="23" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="23" width="1" height="1" fill="#FBBF24"/><rect x="12" y="23" width="1" height="1" fill="#3F4E66"/><rect x="13" y="23" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="23" width="3" height="1" fill="#7DD3FC"/><rect x="17" y="23" width="2" height="1" fill="#3F4E66"/><rect x="19" y="23" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="23" width="2" height="1" fill="#FFFFFF"/><rect x="22" y="23" width="1" height="1" fill="#16233C"/><rect x="7" y="24" width="1" height="1" fill="#16233C"/><rect x="8" y="24" width="2" height="1" fill="#FFFFFF"/><rect x="10" y="24" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="24" width="2" height="1" fill="#3F4E66"/><rect x="13" y="24" width="1" height="1" fill="#7DD3FC"/><rect x="14" y="24" width="2" height="1" fill="#3F4E66"/><rect x="16" y="24" width="1" height="1" fill="#7DD3FC"/><rect x="17" y="24" width="2" height="1" fill="#3F4E66"/><rect x="19" y="24" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="24" width="2" height="1" fill="#FFFFFF"/><rect x="22" y="24" width="1" height="1" fill="#16233C"/><rect x="7" y="25" width="1" height="1" fill="#16233C"/><rect x="8" y="25" width="2" height="1" fill="#FFFFFF"/><rect x="10" y="25" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="25" width="2" height="1" fill="#3F4E66"/><rect x="13" y="25" width="1" height="1" fill="#7DD3FC"/><rect x="14" y="25" width="2" height="1" fill="#3F4E66"/><rect x="16" y="25" width="1" height="1" fill="#7DD3FC"/><rect x="17" y="25" width="2" height="1" fill="#3F4E66"/><rect x="19" y="25" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="25" width="2" height="1" fill="#FFFFFF"/><rect x="22" y="25" width="1" height="1" fill="#16233C"/><rect x="7" y="26" width="1" height="1" fill="#16233C"/><rect x="8" y="26" width="2" height="1" fill="#FFFFFF"/><rect x="10" y="26" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="26" width="2" height="1" fill="#3F4E66"/><rect x="13" y="26" width="4" height="1" fill="#7DD3FC"/><rect x="17" y="26" width="2" height="1" fill="#3F4E66"/><rect x="19" y="26" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="26" width="2" height="1" fill="#FFFFFF"/><rect x="22" y="26" width="1" height="1" fill="#16233C"/><rect x="7" y="27" width="1" height="1" fill="#16233C"/><rect x="8" y="27" width="2" height="1" fill="#FFD9BE"/><rect x="10" y="27" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="27" width="8" height="1" fill="#3F4E66"/><rect x="19" y="27" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="27" width="2" height="1" fill="#FFD9BE"/><rect x="22" y="27" width="1" height="1" fill="#16233C"/><rect x="7" y="28" width="1" height="1" fill="#16233C"/><rect x="8" y="28" width="2" height="1" fill="#FFD9BE"/><rect x="10" y="28" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="28" width="3" height="1" fill="#FFFFFF"/><rect x="14" y="28" width="2" height="1" fill="#D8ECFA"/><rect x="16" y="28" width="3" height="1" fill="#FFFFFF"/><rect x="19" y="28" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="28" width="2" height="1" fill="#FFD9BE"/><rect x="22" y="28" width="1" height="1" fill="#16233C"/><rect x="8" y="29" width="3" height="1" fill="#16233C"/><rect x="11" y="29" width="8" height="1" fill="#334A6B"/><rect x="19" y="29" width="3" height="1" fill="#16233C"/><rect x="10" y="30" width="1" height="1" fill="#16233C"/><rect x="11" y="30" width="3" height="1" fill="#334A6B"/><rect x="14" y="30" width="2" height="1" fill="#16233C"/><rect x="16" y="30" width="3" height="1" fill="#334A6B"/><rect x="19" y="30" width="1" height="1" fill="#16233C"/><rect x="10" y="31" width="1" height="1" fill="#16233C"/><rect x="11" y="31" width="3" height="1" fill="#334A6B"/><rect x="14" y="31" width="2" height="1" fill="#16233C"/><rect x="16" y="31" width="3" height="1" fill="#334A6B"/><rect x="19" y="31" width="1" height="1" fill="#16233C"/><rect x="9" y="32" width="1" height="1" fill="#16233C"/><rect x="10" y="32" width="4" height="1" fill="#16233C"/><rect x="14" y="32" width="2" height="1" fill="#16233C"/><rect x="16" y="32" width="4" height="1" fill="#16233C"/><rect x="20" y="32" width="1" height="1" fill="#16233C"/><rect x="9" y="33" width="1" height="1" fill="#16233C"/><rect x="10" y="33" width="4" height="1" fill="#FFFFFF"/><rect x="14" y="33" width="2" height="1" fill="#16233C"/><rect x="16" y="33" width="4" height="1" fill="#FFFFFF"/><rect x="20" y="33" width="1" height="1" fill="#16233C"/><rect x="10" y="34" width="4" height="1" fill="#16233C"/><rect x="16" y="34" width="4" height="1" fill="#16233C"/></symbol>
+<symbol id="px-guide-walk" viewBox="0 0 30 38" shape-rendering="crispEdges"><rect x="11" y="1" width="8" height="1" fill="#16233C"/><rect x="10" y="2" width="1" height="1" fill="#16233C"/><rect x="11" y="2" width="8" height="1" fill="#38BDF8"/><rect x="19" y="2" width="1" height="1" fill="#16233C"/><rect x="9" y="3" width="1" height="1" fill="#16233C"/><rect x="10" y="3" width="2" height="1" fill="#38BDF8"/><rect x="12" y="3" width="4" height="1" fill="#BAE6FD"/><rect x="16" y="3" width="4" height="1" fill="#38BDF8"/><rect x="20" y="3" width="1" height="1" fill="#16233C"/><rect x="9" y="4" width="1" height="1" fill="#16233C"/><rect x="10" y="4" width="1" height="1" fill="#38BDF8"/><rect x="11" y="4" width="3" height="1" fill="#BAE6FD"/><rect x="14" y="4" width="6" height="1" fill="#38BDF8"/><rect x="20" y="4" width="1" height="1" fill="#16233C"/><rect x="9" y="5" width="1" height="1" fill="#16233C"/><rect x="10" y="5" width="10" height="1" fill="#38BDF8"/><rect x="20" y="5" width="1" height="1" fill="#16233C"/><rect x="7" y="6" width="3" height="1" fill="#16233C"/><rect x="10" y="6" width="10" height="1" fill="#38BDF8"/><rect x="20" y="6" width="3" height="1" fill="#16233C"/><rect x="6" y="7" width="1" height="1" fill="#16233C"/><rect x="7" y="7" width="1" height="1" fill="#38BDF8"/><rect x="8" y="7" width="4" height="1" fill="#BAE6FD"/><rect x="12" y="7" width="11" height="1" fill="#38BDF8"/><rect x="23" y="7" width="1" height="1" fill="#16233C"/><rect x="7" y="8" width="1" height="1" fill="#16233C"/><rect x="8" y="8" width="14" height="1" fill="#0EA5E9"/><rect x="22" y="8" width="1" height="1" fill="#16233C"/><rect x="8" y="9" width="2" height="1" fill="#16233C"/><rect x="10" y="9" width="10" height="1" fill="#F2BE9C"/><rect x="20" y="9" width="2" height="1" fill="#16233C"/><rect x="9" y="10" width="1" height="1" fill="#16233C"/><rect x="10" y="10" width="10" height="1" fill="#FFD9BE"/><rect x="20" y="10" width="1" height="1" fill="#16233C"/><rect x="9" y="11" width="1" height="1" fill="#16233C"/><rect x="10" y="11" width="10" height="1" fill="#FFD9BE"/><rect x="20" y="11" width="1" height="1" fill="#16233C"/><rect x="9" y="12" width="1" height="1" fill="#16233C"/><rect x="10" y="12" width="2" height="1" fill="#FFD9BE"/><rect x="12" y="12" width="2" height="1" fill="#16233C"/><rect x="14" y="12" width="2" height="1" fill="#FFD9BE"/><rect x="16" y="12" width="2" height="1" fill="#16233C"/><rect x="18" y="12" width="2" height="1" fill="#FFD9BE"/><rect x="20" y="12" width="1" height="1" fill="#16233C"/><rect x="9" y="13" width="1" height="1" fill="#16233C"/><rect x="10" y="13" width="2" height="1" fill="#FFD9BE"/><rect x="12" y="13" width="2" height="1" fill="#16233C"/><rect x="14" y="13" width="2" height="1" fill="#FFD9BE"/><rect x="16" y="13" width="2" height="1" fill="#16233C"/><rect x="18" y="13" width="2" height="1" fill="#FFD9BE"/><rect x="20" y="13" width="1" height="1" fill="#16233C"/><rect x="9" y="14" width="1" height="1" fill="#16233C"/><rect x="10" y="14" width="10" height="1" fill="#FFD9BE"/><rect x="20" y="14" width="1" height="1" fill="#16233C"/><rect x="9" y="15" width="1" height="1" fill="#16233C"/><rect x="10" y="15" width="1" height="1" fill="#FFD9BE"/><rect x="11" y="15" width="2" height="1" fill="#FFAFC5"/><rect x="13" y="15" width="4" height="1" fill="#FFD9BE"/><rect x="17" y="15" width="2" height="1" fill="#FFAFC5"/><rect x="19" y="15" width="1" height="1" fill="#FFD9BE"/><rect x="20" y="15" width="1" height="1" fill="#16233C"/><rect x="9" y="16" width="1" height="1" fill="#16233C"/><rect x="10" y="16" width="4" height="1" fill="#FFD9BE"/><rect x="14" y="16" width="2" height="1" fill="#16233C"/><rect x="16" y="16" width="4" height="1" fill="#FFD9BE"/><rect x="20" y="16" width="1" height="1" fill="#16233C"/><rect x="9" y="17" width="1" height="1" fill="#16233C"/><rect x="10" y="17" width="10" height="1" fill="#FFD9BE"/><rect x="20" y="17" width="1" height="1" fill="#16233C"/><rect x="9" y="18" width="1" height="1" fill="#16233C"/><rect x="10" y="18" width="2" height="1" fill="#F2BE9C"/><rect x="12" y="18" width="6" height="1" fill="#FFD9BE"/><rect x="18" y="18" width="2" height="1" fill="#F2BE9C"/><rect x="20" y="18" width="1" height="1" fill="#16233C"/><rect x="10" y="19" width="3" height="1" fill="#16233C"/><rect x="13" y="19" width="3" height="1" fill="#F2BE9C"/><rect x="16" y="19" width="4" height="1" fill="#16233C"/><rect x="8" y="20" width="2" height="1" fill="#16233C"/><rect x="10" y="20" width="10" height="1" fill="#D8ECFA"/><rect x="20" y="20" width="2" height="1" fill="#16233C"/><rect x="7" y="21" width="1" height="1" fill="#16233C"/><rect x="8" y="21" width="2" height="1" fill="#FFFFFF"/><rect x="10" y="21" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="21" width="1" height="1" fill="#FBBF24"/><rect x="12" y="21" width="6" height="1" fill="#FFFFFF"/><rect x="18" y="21" width="1" height="1" fill="#FBBF24"/><rect x="19" y="21" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="21" width="2" height="1" fill="#FFFFFF"/><rect x="22" y="21" width="1" height="1" fill="#16233C"/><rect x="7" y="22" width="1" height="1" fill="#16233C"/><rect x="8" y="22" width="2" height="1" fill="#FFFFFF"/><rect x="10" y="22" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="22" width="1" height="1" fill="#3F4E66"/><rect x="12" y="22" width="1" height="1" fill="#FBBF24"/><rect x="13" y="22" width="4" height="1" fill="#3F4E66"/><rect x="17" y="22" width="1" height="1" fill="#FBBF24"/><rect x="18" y="22" width="1" height="1" fill="#3F4E66"/><rect x="19" y="22" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="22" width="2" height="1" fill="#FFFFFF"/><rect x="22" y="22" width="1" height="1" fill="#16233C"/><rect x="7" y="23" width="1" height="1" fill="#16233C"/><rect x="8" y="23" width="2" height="1" fill="#FFFFFF"/><rect x="10" y="23" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="23" width="1" height="1" fill="#FBBF24"/><rect x="12" y="23" width="1" height="1" fill="#3F4E66"/><rect x="13" y="23" width="1" height="1" fill="#FFFFFF"/><rect x="14" y="23" width="3" height="1" fill="#7DD3FC"/><rect x="17" y="23" width="2" height="1" fill="#3F4E66"/><rect x="19" y="23" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="23" width="2" height="1" fill="#FFFFFF"/><rect x="22" y="23" width="1" height="1" fill="#16233C"/><rect x="7" y="24" width="1" height="1" fill="#16233C"/><rect x="8" y="24" width="2" height="1" fill="#FFFFFF"/><rect x="10" y="24" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="24" width="2" height="1" fill="#3F4E66"/><rect x="13" y="24" width="1" height="1" fill="#7DD3FC"/><rect x="14" y="24" width="2" height="1" fill="#3F4E66"/><rect x="16" y="24" width="1" height="1" fill="#7DD3FC"/><rect x="17" y="24" width="2" height="1" fill="#3F4E66"/><rect x="19" y="24" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="24" width="2" height="1" fill="#FFFFFF"/><rect x="22" y="24" width="1" height="1" fill="#16233C"/><rect x="7" y="25" width="1" height="1" fill="#16233C"/><rect x="8" y="25" width="2" height="1" fill="#FFFFFF"/><rect x="10" y="25" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="25" width="2" height="1" fill="#3F4E66"/><rect x="13" y="25" width="1" height="1" fill="#7DD3FC"/><rect x="14" y="25" width="2" height="1" fill="#3F4E66"/><rect x="16" y="25" width="1" height="1" fill="#7DD3FC"/><rect x="17" y="25" width="2" height="1" fill="#3F4E66"/><rect x="19" y="25" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="25" width="2" height="1" fill="#FFFFFF"/><rect x="22" y="25" width="1" height="1" fill="#16233C"/><rect x="7" y="26" width="1" height="1" fill="#16233C"/><rect x="8" y="26" width="2" height="1" fill="#FFFFFF"/><rect x="10" y="26" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="26" width="2" height="1" fill="#3F4E66"/><rect x="13" y="26" width="4" height="1" fill="#7DD3FC"/><rect x="17" y="26" width="2" height="1" fill="#3F4E66"/><rect x="19" y="26" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="26" width="2" height="1" fill="#FFFFFF"/><rect x="22" y="26" width="1" height="1" fill="#16233C"/><rect x="7" y="27" width="1" height="1" fill="#16233C"/><rect x="8" y="27" width="2" height="1" fill="#FFD9BE"/><rect x="10" y="27" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="27" width="8" height="1" fill="#3F4E66"/><rect x="19" y="27" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="27" width="2" height="1" fill="#FFD9BE"/><rect x="22" y="27" width="1" height="1" fill="#16233C"/><rect x="7" y="28" width="1" height="1" fill="#16233C"/><rect x="8" y="28" width="2" height="1" fill="#FFD9BE"/><rect x="10" y="28" width="1" height="1" fill="#D8ECFA"/><rect x="11" y="28" width="3" height="1" fill="#FFFFFF"/><rect x="14" y="28" width="2" height="1" fill="#D8ECFA"/><rect x="16" y="28" width="3" height="1" fill="#FFFFFF"/><rect x="19" y="28" width="1" height="1" fill="#D8ECFA"/><rect x="20" y="28" width="2" height="1" fill="#FFD9BE"/><rect x="22" y="28" width="1" height="1" fill="#16233C"/><rect x="8" y="29" width="3" height="1" fill="#16233C"/><rect x="11" y="29" width="8" height="1" fill="#334A6B"/><rect x="19" y="29" width="3" height="1" fill="#16233C"/><rect x="10" y="30" width="1" height="1" fill="#16233C"/><rect x="11" y="30" width="8" height="1" fill="#334A6B"/><rect x="19" y="30" width="1" height="1" fill="#16233C"/><rect x="9" y="31" width="1" height="1" fill="#16233C"/><rect x="10" y="31" width="4" height="1" fill="#334A6B"/><rect x="14" y="31" width="2" height="1" fill="#16233C"/><rect x="16" y="31" width="3" height="1" fill="#334A6B"/><rect x="19" y="31" width="1" height="1" fill="#16233C"/><rect x="9" y="32" width="1" height="1" fill="#16233C"/><rect x="10" y="32" width="4" height="1" fill="#334A6B"/><rect x="14" y="32" width="2" height="1" fill="#16233C"/><rect x="16" y="32" width="4" height="1" fill="#16233C"/><rect x="20" y="32" width="1" height="1" fill="#16233C"/><rect x="8" y="33" width="1" height="1" fill="#16233C"/><rect x="9" y="33" width="5" height="1" fill="#16233C"/><rect x="14" y="33" width="2" height="1" fill="#16233C"/><rect x="16" y="33" width="4" height="1" fill="#16233C"/><rect x="20" y="33" width="1" height="1" fill="#16233C"/><rect x="8" y="34" width="1" height="1" fill="#16233C"/><rect x="9" y="34" width="5" height="1" fill="#FFFFFF"/><rect x="14" y="34" width="2" height="1" fill="#16233C"/><rect x="16" y="34" width="4" height="1" fill="#FFFFFF"/><rect x="20" y="34" width="1" height="1" fill="#16233C"/><rect x="9" y="35" width="5" height="1" fill="#16233C"/><rect x="16" y="35" width="4" height="1" fill="#16233C"/></symbol>
+<symbol id="px-camera" viewBox="0 0 16 14" shape-rendering="crispEdges"><rect x="5" y="1" width="6" height="1" fill="#16233C"/><rect x="4" y="2" width="1" height="1" fill="#16233C"/><rect x="5" y="2" width="6" height="1" fill="#3F4E66"/><rect x="11" y="2" width="1" height="1" fill="#16233C"/><rect x="2" y="3" width="3" height="1" fill="#16233C"/><rect x="5" y="3" width="6" height="1" fill="#3F4E66"/><rect x="11" y="3" width="3" height="1" fill="#16233C"/><rect x="1" y="4" width="1" height="1" fill="#16233C"/><rect x="2" y="4" width="12" height="1" fill="#7DD3FC"/><rect x="14" y="4" width="1" height="1" fill="#16233C"/><rect x="1" y="5" width="1" height="1" fill="#16233C"/><rect x="2" y="5" width="9" height="1" fill="#3F4E66"/><rect x="11" y="5" width="2" height="1" fill="#FBBF24"/><rect x="13" y="5" width="1" height="1" fill="#3F4E66"/><rect x="14" y="5" width="1" height="1" fill="#16233C"/><rect x="1" y="6" width="1" height="1" fill="#16233C"/><rect x="2" y="6" width="3" height="1" fill="#3F4E66"/><rect x="5" y="6" width="6" height="1" fill="#7DD3FC"/><rect x="11" y="6" width="3" height="1" fill="#3F4E66"/><rect x="14" y="6" width="1" height="1" fill="#16233C"/><rect x="1" y="7" width="1" height="1" fill="#16233C"/><rect x="2" y="7" width="3" height="1" fill="#3F4E66"/><rect x="5" y="7" width="2" height="1" fill="#7DD3FC"/><rect x="7" y="7" width="2" height="1" fill="#3F4E66"/><rect x="9" y="7" width="2" height="1" fill="#7DD3FC"/><rect x="11" y="7" width="3" height="1" fill="#3F4E66"/><rect x="14" y="7" width="1" height="1" fill="#16233C"/><rect x="1" y="8" width="1" height="1" fill="#16233C"/><rect x="2" y="8" width="3" height="1" fill="#3F4E66"/><rect x="5" y="8" width="2" height="1" fill="#7DD3FC"/><rect x="7" y="8" width="2" height="1" fill="#3F4E66"/><rect x="9" y="8" width="2" height="1" fill="#7DD3FC"/><rect x="11" y="8" width="3" height="1" fill="#3F4E66"/><rect x="14" y="8" width="1" height="1" fill="#16233C"/><rect x="1" y="9" width="1" height="1" fill="#16233C"/><rect x="2" y="9" width="3" height="1" fill="#3F4E66"/><rect x="5" y="9" width="2" height="1" fill="#7DD3FC"/><rect x="7" y="9" width="2" height="1" fill="#3F4E66"/><rect x="9" y="9" width="2" height="1" fill="#7DD3FC"/><rect x="11" y="9" width="3" height="1" fill="#3F4E66"/><rect x="14" y="9" width="1" height="1" fill="#16233C"/><rect x="1" y="10" width="1" height="1" fill="#16233C"/><rect x="2" y="10" width="3" height="1" fill="#3F4E66"/><rect x="5" y="10" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="10" width="1" height="1" fill="#7DD3FC"/><rect x="7" y="10" width="2" height="1" fill="#3F4E66"/><rect x="9" y="10" width="2" height="1" fill="#7DD3FC"/><rect x="11" y="10" width="3" height="1" fill="#3F4E66"/><rect x="14" y="10" width="1" height="1" fill="#16233C"/><rect x="1" y="11" width="1" height="1" fill="#16233C"/><rect x="2" y="11" width="3" height="1" fill="#3F4E66"/><rect x="5" y="11" width="1" height="1" fill="#FFFFFF"/><rect x="6" y="11" width="5" height="1" fill="#7DD3FC"/><rect x="11" y="11" width="3" height="1" fill="#3F4E66"/><rect x="14" y="11" width="1" height="1" fill="#16233C"/><rect x="1" y="12" width="1" height="1" fill="#16233C"/><rect x="2" y="12" width="12" height="1" fill="#3F4E66"/><rect x="14" y="12" width="1" height="1" fill="#16233C"/><rect x="2" y="13" width="12" height="1" fill="#16233C"/></symbol>
+<symbol id="px-face" viewBox="0 0 12 12" shape-rendering="crispEdges"><rect x="3" y="0" width="6" height="1" fill="#16233C"/><rect x="2" y="1" width="1" height="1" fill="#16233C"/><rect x="3" y="1" width="6" height="1" fill="#38BDF8"/><rect x="9" y="1" width="1" height="1" fill="#16233C"/><rect x="1" y="2" width="1" height="1" fill="#16233C"/><rect x="2" y="2" width="2" height="1" fill="#BAE6FD"/><rect x="4" y="2" width="6" height="1" fill="#38BDF8"/><rect x="10" y="2" width="1" height="1" fill="#16233C"/><rect x="1" y="3" width="1" height="1" fill="#16233C"/><rect x="2" y="3" width="8" height="1" fill="#38BDF8"/><rect x="10" y="3" width="1" height="1" fill="#16233C"/><rect x="0" y="4" width="1" height="1" fill="#16233C"/><rect x="1" y="4" width="10" height="1" fill="#0EA5E9"/><rect x="11" y="4" width="1" height="1" fill="#16233C"/><rect x="1" y="5" width="1" height="1" fill="#16233C"/><rect x="2" y="5" width="8" height="1" fill="#FFD9BE"/><rect x="10" y="5" width="1" height="1" fill="#16233C"/><rect x="1" y="6" width="1" height="1" fill="#16233C"/><rect x="2" y="6" width="8" height="1" fill="#FFD9BE"/><rect x="10" y="6" width="1" height="1" fill="#16233C"/><rect x="1" y="7" width="1" height="1" fill="#16233C"/><rect x="2" y="7" width="2" height="1" fill="#FFD9BE"/><rect x="4" y="7" width="1" height="1" fill="#16233C"/><rect x="5" y="7" width="2" height="1" fill="#FFD9BE"/><rect x="7" y="7" width="1" height="1" fill="#16233C"/><rect x="8" y="7" width="2" height="1" fill="#FFD9BE"/><rect x="10" y="7" width="1" height="1" fill="#16233C"/><rect x="1" y="8" width="1" height="1" fill="#16233C"/><rect x="2" y="8" width="8" height="1" fill="#FFD9BE"/><rect x="10" y="8" width="1" height="1" fill="#16233C"/><rect x="1" y="9" width="1" height="1" fill="#16233C"/><rect x="2" y="9" width="3" height="1" fill="#FFD9BE"/><rect x="5" y="9" width="2" height="1" fill="#16233C"/><rect x="7" y="9" width="3" height="1" fill="#FFD9BE"/><rect x="10" y="9" width="1" height="1" fill="#16233C"/><rect x="1" y="10" width="1" height="1" fill="#16233C"/><rect x="2" y="10" width="8" height="1" fill="#FFD9BE"/><rect x="10" y="10" width="1" height="1" fill="#16233C"/><rect x="2" y="11" width="8" height="1" fill="#16233C"/></symbol>
   <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M8 4v5M16 4v5"/></symbol>
   <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="6" r="2.4"/><path d="M8.4 18h4.1a3.5 3.5 0 0 0 0-7h-1a3.5 3.5 0 0 1 0-7h4.1"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
@@ -28,6 +35,7 @@
   <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.6" r="3.6"/><path d="M5 20c0-3.4 3-5.6 7-5.6s7 2.2 7 5.6"/></symbol>
   <symbol id="i-chev-left" viewBox="0 0 24 24"><path d="m14.5 5.5-6.5 6.5 6.5 6.5"/></symbol>
   <symbol id="i-chev-right" viewBox="0 0 24 24"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></symbol>
+  <symbol id="i-chev-down" viewBox="0 0 24 24"><path d="m6 9.5 6 6 6-6"/></symbol>
   <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4.5 12h15M13.5 6l6 6-6 6"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 4 2.5 5.2 5.5.8-4 3.9.9 5.6L12 16.8 7.1 19.5l.9-5.6-4-3.9 5.5-.8L12 4Z"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.6 4.4 4.4L19 7.4"/></symbol>
@@ -38,11 +46,13 @@
   <symbol id="i-cup" viewBox="0 0 24 24"><path d="M5 7.5h11v6.5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7.5Z"/><path d="M16 9h1.6a2.4 2.4 0 0 1 0 4.8H16M3.6 21h13.8"/></symbol>
   <symbol id="i-shop" viewBox="0 0 24 24"><path d="M4 9.5h16V19a1.6 1.6 0 0 1-1.6 1.6H5.6A1.6 1.6 0 0 1 4 19V9.5Z"/><path d="M3.2 9.5 5.4 4.4h13.2l2.2 5.1M9.2 20.6v-5.4h5.6v5.4"/></symbol>
   <symbol id="i-bowl" viewBox="0 0 24 24"><path d="M3.6 11h16.8a8.4 8.4 0 0 1-8.4 8.4A8.4 8.4 0 0 1 3.6 11Z"/><path d="M7 7.6c0-1.4 1.6-1.6 1.6-3M12 7.6c0-1.4 1.6-1.6 1.6-3M17 7.6c0-1.4 1.6-1.6 1.6-3"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3.5 13.7 9l5.5 1.7-5.5 1.7L12 18l-1.7-5.6L4.8 10.7 10.3 9 12 3.5Z"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8.5h13l-3-3M20 15.5H7l3 3"/></symbol>
 </svg>
 
 <header class="topbar">
   <a class="brand" href="./" aria-label="SceneRoad 홈">
-    <span class="brand__mark"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.5" width="18" height="13" rx="3.4" fill="#fff"/><path d="M3.4 6.6 17.9 3l1.5 4.4L4.9 11 3.4 6.6Z" fill="#fff" opacity=".55"/><path d="M8.4 8.4l2.2-2.6M12.6 7.4l2.2-2.6" stroke="#0EA5E9" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+    <span class="brand__mark"><svg viewBox="0 0 30 38" aria-hidden="true" class="px px--cam"><use href="#px-camera"/></svg></span>
     <span class="brand__text">SceneRoad<em>씬로드</em></span>
   </a>
 
@@ -57,25 +67,39 @@
 <main>
   <!-- 전체 한눈에 보기 -->
   <section class="view is-active" id="view-overview" role="tabpanel" aria-label="전체 한눈에 보기">
-    <div class="board-wrap" id="boardWrap">
+    <div class="board-wrap">
       <div class="board" id="board">
 
         <aside class="panel panel--left">
           <div class="brand2">
-            <span class="brand2__mark"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.5" width="18" height="13" rx="3.4" fill="#fff"/><path d="M3.4 6.6 17.9 3l1.5 4.4L4.9 11 3.4 6.6Z" fill="#fff" opacity=".55"/><path d="M8.4 8.4l2.2-2.6M12.6 7.4l2.2-2.6" stroke="#0EA5E9" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+            <span class="brand2__mark"><svg viewBox="0 0 30 38" aria-hidden="true" class="px px--cam"><use href="#px-camera"/></svg></span>
             <div>
               <p class="brand2__name">SceneRoad</p>
-              <p class="brand2__sub">씬로드 <span class="vbar"></span> 로컬 투어 플랫폼</p>
+              <p class="brand2__sub">씬로드 <span class="vbar"></span> 로컬 투어 앱</p>
             </div>
           </div>
 
+          <div class="pxcard">
+            <div class="pxcard__text">
+              <p class="pxlabel">PIXEL GUIDE</p>
+              <p class="pxcard__name">씬로, 여행 취향을 묻는 안내자</p>
+              <p class="pxcard__body">방문객이 고른 취향에 맞춰 인사말과 도보 코스, 추천 스팟이 함께 바뀝니다.</p>
+            </div>
+            <svg viewBox="0 0 30 38" aria-hidden="true" class="pxcard__fig"><use href="#px-guide"/></svg>
+          </div>
+
           <h1 class="headline">K-콘텐츠 촬영지와<br>로컬 상권을 잇는<br>투어 앱</h1>
-          <p class="lede">드라마 촬영지와 그 주변의 맛집, 카페, 전통찻집, 골목 상점을 한 화면에 모아 보여 줍니다. 외국인 방문객에게는 걷는 코스를, 소상공인에게는 방문 흐름과 운영 팁을 건넵니다.</p>
+          <p class="lede">드라마 촬영지와 그 주변의 맛집, 카페, 전통찻집, 골목 상점을 한 화면에 모아 보여 줍니다. 외국인 방문객에게는 취향에 맞춘 걷는 코스를, 소상공인에게는 방문 흐름과 운영 팁을 건넵니다.</p>
+
+          <div class="problem">
+            <p class="pxlabel">PROBLEM</p>
+            <p class="problem__text">촬영지에 사람은 오지만, 옆 골목 가게로는 이어지지 않습니다.</p>
+          </div>
 
           <ul class="roles">
             <li class="role">
               <span class="role__badge role__badge--v">V</span>
-              <div><p class="role__title">방문객</p><p class="role__desc">촬영지 도보 동선과 주변 로컬 스팟을 한 번에 탐색</p></div>
+              <div><p class="role__title">방문객</p><p class="role__desc">언어와 취향을 고르면 맞춤 도보 동선과 로컬 스팟이 열립니다</p></div>
             </li>
             <li class="role">
               <span class="role__badge role__badge--p">P</span>
@@ -88,10 +112,10 @@
           </ul>
 
           <div class="flow">
-            <p class="flow__title">사용자 흐름</p>
+            <p class="pxlabel">HOW IT WORKS</p>
             <ol class="flow__list">
               <li><b>1</b><span>드라마 촬영지 고르기</span></li>
-              <li><b>2</b><span>감고당길 도보 코스 확인</span></li>
+              <li><b>2</b><span>취향 골라 맞춤 코스 받기</span></li>
               <li><b>3</b><span>주변 로컬 상점 방문</span></li>
             </ol>
           </div>
@@ -102,60 +126,85 @@
           </div>
 
           <nav class="screenlist" aria-label="화면 바로 열기">
-            <p class="screenlist__title">화면 4개 바로 열기</p>
+            <p class="pxlabel">SCREENS</p>
             <button type="button" class="screenlist__item" data-open="home"><b>01</b><span>방문객 홈</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
             <button type="button" class="screenlist__item" data-open="partner"><b>02</b><span>씬로드 파트너</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
             <button type="button" class="screenlist__item" data-open="course"><b>03</b><span>도보 코스</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
             <button type="button" class="screenlist__item" data-open="spots"><b>04</b><span>로컬 스팟</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
           </nav>
-
         </aside>
 
         <div class="phones" id="phones"></div>
 
         <aside class="panel panel--right">
-          <h2 class="panel__title">핵심 기능 4가지</h2>
-          <p class="panel__sub">데이터 결합으로 방문객과 상권을 바로 연결합니다</p>
+          <div>
+            <p class="pxlabel">WHAT IT DOES</p>
+            <h2 class="panel__title">핵심 기능 4가지</h2>
+            <p class="panel__sub">촬영지와 상권 데이터를 묶어 방문객과 골목 가게를 바로 연결합니다</p>
 
-          <ul class="features">
-            <li class="feature">
-              <span class="feature__num">01</span>
-              <div><p class="feature__title"><svg class="ic"><use href="#i-route"/></svg>동선 추천</p><p class="feature__body">촬영지와 주변 로컬 상점을 연결한 도보 코스를 자동으로 추천합니다.</p></div>
-            </li>
-            <li class="feature">
-              <span class="feature__num">02</span>
-              <div><p class="feature__title"><svg class="ic"><use href="#i-chart"/></svg>유동 분석</p><p class="feature__body">시간대별 방문 흐름과 외국인 소비 비중을 분석해 소상공인 운영 인사이트를 제공합니다.</p></div>
-            </li>
-            <li class="feature">
-              <span class="feature__num">03</span>
-              <div><p class="feature__title"><svg class="ic"><use href="#i-pin"/></svg>로컬 상권 추천</p><p class="feature__body">온미관 안국, 도트블랭킷, 티테라피 행랑점처럼 촬영지 주변의 실제 소상공인 매장을 연결합니다.</p></div>
-            </li>
-            <li class="feature">
-              <span class="feature__num">04</span>
-              <div><p class="feature__title"><svg class="ic"><use href="#i-globe"/></svg>다국어 지원</p><p class="feature__body">영어, 일본어, 중국어로 안내와 메뉴 정보를 바꿔 보여 주어 외국인 방문객의 이용 장벽을 낮춥니다.</p></div>
-            </li>
-          </ul>
-
-          <div class="metricrow">
-            <div><span>보행 점수</span><b>88</b></div>
-            <div><span>외국인 소비</span><b>34.2%</b></div>
-            <div><span>피크 시간</span><b>15시</b></div>
-          </div>
-
-          <div class="datanote">
-            <p class="datanote__title">연계 데이터 기반 설계</p>
-            <p class="datanote__body">원윈도우 개방 데이터(KMDB 영화상세, 서울시 10m 도로 유동인구, 카드 매출, 관광 음식점 흐름 지표)를 결합해 도보 동선과 상권 인사이트를 산출합니다.</p>
-          </div>
-
-          <div class="trytips">
-            <p class="trytips__title">화면 둘러보기</p>
-            <ul>
-              <li>홈 오른쪽 위 EN을 누르면 영문 화면으로 바뀝니다.</li>
-              <li>도보 코스와 로컬 스팟에서 카테고리를 눌러 목록을 걸러 볼 수 있습니다.</li>
-              <li>파트너 화면에서 15시 피크와 오늘의 운영 팁을 확인해 보세요.</li>
+            <ul class="features">
+              <li class="feature">
+                <span class="feature__num">01</span>
+                <div><p class="feature__title"><svg class="ic"><use href="#i-route"/></svg>취향 맞춤 동선</p><p class="feature__body">고른 취향과 남은 시간에 맞춰 촬영지와 로컬 상점을 잇는 도보 코스를 다시 짭니다.</p></div>
+              </li>
+              <li class="feature">
+                <span class="feature__num">02</span>
+                <div><p class="feature__title"><svg class="ic"><use href="#i-chart"/></svg>유동 분석</p><p class="feature__body">시간대별 방문 흐름과 외국인 소비 비중을 분석해 소상공인 운영 인사이트를 제공합니다.</p></div>
+              </li>
+              <li class="feature">
+                <span class="feature__num">03</span>
+                <div><p class="feature__title"><svg class="ic"><use href="#i-pin"/></svg>로컬 상권 추천</p><p class="feature__body">온미관 안국, 도트블랭킷, 티테라피 행랑점처럼 촬영지 주변의 실제 소상공인 매장을 연결합니다.</p></div>
+              </li>
+              <li class="feature">
+                <span class="feature__num">04</span>
+                <div><p class="feature__title"><svg class="ic"><use href="#i-globe"/></svg>다국어와 여행 취향</p><p class="feature__body">영어, 일본어, 한국어 안내에 더해 영어 메뉴 여부와 취향 태그로 외국인 방문객의 선택을 돕습니다.</p></div>
+              </li>
             </ul>
+
+            <div class="metricrow">
+              <div><span>보행 점수</span><b>88</b></div>
+              <div><span>외국인 소비</span><b>34.2%</b></div>
+              <div><span>피크 시간</span><b>15시</b></div>
+            </div>
+
+            <div class="flowdata">
+              <p class="pxlabel">DATA FLOW</p>
+              <div class="flowdata__row">
+                <span>개방 데이터</span><i class="flowdata__arrow"></i><span>도보 동선</span><i class="flowdata__arrow"></i><span>골목 방문</span>
+              </div>
+              <p class="flowdata__note">KMDB 영화상세, 서울시 유동인구, 카드 매출을 묶어 취향별 코스를 계산합니다.</p>
+            </div>
           </div>
 
+          <div class="quotecard">
+            <div class="quotecard__head">
+              <p class="pxlabel">GUIDE SAYS</p>
+              <span class="quotecard__tag">친구와 함께</span>
+            </div>
+            <div class="quotecard__main">
+              <svg viewBox="0 0 30 38" aria-hidden="true" class="px quotecard__fig"><use href="#px-guide-walk"/></svg>
+              <div class="bubble">
+                <p class="bubble__text">“사진 찍기 좋은 자리부터 모았어. <em>셋이 서면 딱 맞아.</em>”</p>
+              </div>
+            </div>
+            <p class="quotecard__sub">취향을 고른 순간, 인사말과 코스가 함께 다시 쓰입니다. 같은 촬영지라도 고른 취향에 따라 걷는 순서와 추천 이유가 달라집니다.</p>
+          </div>
+
+          <div class="datastack">
+            <div class="datanote">
+              <p class="datanote__title">연계 데이터 기반 설계</p>
+              <p class="datanote__body">원윈도우 개방 데이터(KMDB 영화상세, 서울시 10m 도로 유동인구, 카드 매출, 관광 음식점 흐름 지표)를 결합해 도보 동선과 상권 인사이트를 산출합니다.</p>
+            </div>
+
+            <div class="trytips">
+              <p class="trytips__title">화면 둘러보기</p>
+              <ul>
+                <li>홈 오른쪽 위에서 EN, JP, KR을 눌러 언어를 바꿀 수 있습니다.</li>
+                <li>여행 취향 태그를 누르면 가이드 멘트와 코스, 스팟 카드가 함께 바뀝니다.</li>
+                <li>로컬 스팟에서 영어 메뉴가 되는 곳만 골라 볼 수 있습니다.</li>
+              </ul>
+            </div>
+          </div>
         </aside>
 
       </div>
@@ -169,7 +218,7 @@
       <div class="stage__rail" role="tablist" aria-label="화면 선택" id="rail"></div>
       <div class="stage__phone" id="stagePhone"></div>
     </div>
-    <p class="stage__hint">버튼과 탭, 언어 전환은 실제로 동작합니다. 화면을 위아래로 넘겨 내용을 더 볼 수 있습니다.</p>
+    <p class="stage__hint">언어 전환과 취향 태그, 카테고리 필터가 실제로 동작합니다. 화면을 위아래로 넘겨 내용을 더 볼 수 있습니다.</p>
   </section>
 </main>
 
@@ -182,98 +231,99 @@
 
 <template id="tpl-home">
   <div class="screen screen--home" data-screen="home">
-    <div class="statusbar"><span>9:41</span><span class="statusbar__icons"><svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="6" width="3" height="6" rx="1"/><rect x="9" y="3.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="1" width="3" height="11" rx="1"/></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 5.6 8.2a3.4 3.4 0 0 1 4.8 0L8 10.6Z"/><path d="M2.8 5.4a7.4 7.4 0 0 1 10.4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg viewBox="0 0 26 12" aria-hidden="true"><rect x="0.5" y="1" width="20" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2.5" y="3" width="14" height="6" rx="1.6"/><rect x="22.5" y="4" width="2.4" height="4" rx="1.2"/></svg></span></div>
-
-    <div class="appbar">
-      <span class="appbar__word">SceneRoad</span>
+    <div class="appbar appbar--home">
+      <span class="appbar__brand">
+        <svg viewBox="0 0 16 14" aria-hidden="true" class="px px--mini"><use href="#px-camera"/></svg>
+        <span class="appbar__word">SceneRoad</span>
+      </span>
       <div class="lang" role="group" aria-label="언어 전환">
         <button type="button" class="lang__btn" data-lang="en">EN</button>
-        <span class="lang__sep">/</span>
+        <button type="button" class="lang__btn" data-lang="jp">JP</button>
         <button type="button" class="lang__btn is-active" data-lang="kr">KR</button>
       </div>
     </div>
 
     <div class="scroll">
       <div class="hero">
-        <span class="hero__badge" data-en="SBS drama">SBS 드라마</span>
-        <p class="hero__title" data-en="Business Proposal filming spot tour">사내맞선 촬영지 투어</p>
-        <p class="hero__sub" data-en="Gamgodang-gil area, Anguk-dong, Jongno-gu, Seoul">서울 종로구 안국동 감고당길 일대</p>
+        <div class="hero__body">
+          <span class="hero__badge" data-hero="badge"></span>
+          <p class="hero__title" data-hero="title"></p>
+          <p class="hero__sub" data-hero="sub"></p>
+        </div>
+        <svg viewBox="0 0 30 38" aria-hidden="true" class="hero__figure"><use href="#px-guide"/></svg>
       </div>
 
-      <nav class="quick" aria-label="주요 메뉴">
-        <button type="button" class="quick__item" data-toast="드라마 목록은 프로토타입에서 예시로만 열립니다.">
-          <span class="quick__icon"><svg class="ic"><use href="#i-film"/></svg></span>
-          <span class="quick__label" data-en="Drama">드라마</span>
-        </button>
-        <button type="button" class="quick__item" data-go="course">
-          <span class="quick__icon"><svg class="ic"><use href="#i-route"/></svg></span>
-          <span class="quick__label" data-en="Walk route">도보 동선</span>
-        </button>
-        <button type="button" class="quick__item" data-go="spots">
-          <span class="quick__icon"><svg class="ic"><use href="#i-pin"/></svg></span>
-          <span class="quick__label" data-en="Local spots">로컬 스팟</span>
-        </button>
-        <button type="button" class="quick__item" data-toast="더보기 메뉴는 프로토타입에서 준비 중입니다.">
-          <span class="quick__icon"><svg class="ic"><use href="#i-grid"/></svg></span>
-          <span class="quick__label" data-en="More">더보기</span>
-        </button>
-      </nav>
+      <section class="taste">
+        <div class="taste__head">
+          <div>
+            <p class="pxlabel">PICK YOUR VIBE</p>
+            <p class="taste__title" data-t="tasteTitle">여행 취향</p>
+          </div>
+          <span class="taste__count" data-taste-count></span>
+        </div>
+        <div class="taste__chips" data-taste-chips></div>
+        <p class="guide">
+          <span class="guide__avatar"><svg viewBox="0 0 12 12" aria-hidden="true" class="px"><use href="#px-face"/></svg></span>
+          <span class="guide__text" data-guide="home"></span>
+        </p>
+      </section>
 
       <button type="button" class="rec" data-go="course">
         <span class="rec__icon"><svg class="ic"><use href="#i-gift"/></svg></span>
         <span class="rec__text">
-          <span class="rec__title" data-en="Gamgodang-gil recommended tour">감고당길 추천 투어</span>
-          <span class="rec__desc" data-en="Filming spots and nearby local shops (about 1.2km, 20 min)">촬영지와 주변 로컬 상점 (약 1.2km, 20분)</span>
+          <span class="rec__title" data-rec="title"></span>
+          <span class="rec__desc" data-rec="desc"></span>
         </span>
-        <span class="rec__more"><span data-en="All">전체</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></span>
+        <span class="rec__more"><span data-t="all">전체</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></span>
       </button>
 
+      <nav class="quick" aria-label="주요 메뉴">
+        <button type="button" class="quick__item" data-toast="drama">
+          <span class="quick__icon"><svg class="ic"><use href="#i-film"/></svg></span>
+          <span class="quick__label" data-t="qDrama">드라마</span>
+        </button>
+        <button type="button" class="quick__item" data-go="course">
+          <span class="quick__icon"><svg class="ic"><use href="#i-route"/></svg></span>
+          <span class="quick__label" data-t="qRoute">도보 동선</span>
+        </button>
+        <button type="button" class="quick__item" data-go="spots">
+          <span class="quick__icon"><svg class="ic"><use href="#i-pin"/></svg></span>
+          <span class="quick__label" data-t="qSpots">로컬 스팟</span>
+        </button>
+        <button type="button" class="quick__item" data-toast="more">
+          <span class="quick__icon"><svg class="ic"><use href="#i-grid"/></svg></span>
+          <span class="quick__label" data-t="qMore">더보기</span>
+        </button>
+      </nav>
+
       <div class="section-head">
-        <h3 data-en="Popular local spots nearby">주변 인기 로컬 스팟</h3>
-        <button type="button" class="section-head__more" data-go="spots" data-en="See all">전체 보기</button>
+        <h3 data-t="nearby">지금 취향에 맞는 스팟</h3>
+        <button type="button" class="section-head__more" data-go="spots" data-t="seeAll">전체 보기</button>
       </div>
 
-      <div class="spot-grid">
-        <button type="button" class="spot-mini" data-go="spots">
-          <span class="spot-mini__img"><img src="assets/spot-onmigwan.jpg" alt="온미관 안국 한식 상차림" loading="lazy"></span>
-          <span class="spot-mini__name" data-en="Onmigwan">온미관 안국</span>
-          <span class="spot-mini__meta"><i class="rating">★ 4.6</i><span data-en="Korean">한식</span></span>
-        </button>
-        <button type="button" class="spot-mini" data-go="spots">
-          <span class="spot-mini__img"><img src="assets/spot-dotblanket.jpg" alt="도트블랭킷 브런치 팬케이크" loading="lazy"></span>
-          <span class="spot-mini__name" data-en="Dot Blanket">도트블랭킷</span>
-          <span class="spot-mini__meta"><i class="rating">★ 4.8</i><span data-en="Cafe">카페</span></span>
-        </button>
-        <button type="button" class="spot-mini" data-go="spots">
-          <span class="spot-mini__img"><img src="assets/spot-teatherapy.jpg" alt="티테라피 행랑점 한옥 골목" loading="lazy"></span>
-          <span class="spot-mini__name" data-en="Tea Therapy">티테라피 행랑점</span>
-          <span class="spot-mini__meta"><i class="rating">★ 4.6</i><span data-en="Tea house">전통찻집</span></span>
-        </button>
-      </div>
+      <div class="spot-grid" data-home-spots></div>
     </div>
 
     <nav class="tabbar" aria-label="하단 메뉴">
-      <button type="button" class="tab is-active" data-go="home"><svg class="ic"><use href="#i-home"/></svg><span data-en="Home">홈</span></button>
-      <button type="button" class="tab" data-go="spots"><svg class="ic"><use href="#i-search"/></svg><span data-en="Explore">탐색</span></button>
-      <button type="button" class="tab" data-go="course"><svg class="ic"><use href="#i-map"/></svg><span data-en="Map">지도</span></button>
-      <button type="button" class="tab" data-toast="저장한 코스는 프로토타입에서 예시로만 열립니다."><svg class="ic"><use href="#i-bookmark"/></svg><span data-en="Saved">저장</span></button>
+      <button type="button" class="tab is-active" data-go="home"><svg class="ic"><use href="#i-home"/></svg><span data-t="tabHome">홈</span></button>
+      <button type="button" class="tab" data-go="spots"><svg class="ic"><use href="#i-search"/></svg><span data-t="tabExplore">탐색</span></button>
+      <button type="button" class="tab" data-go="course"><svg class="ic"><use href="#i-map"/></svg><span data-t="tabMap">지도</span></button>
+      <button type="button" class="tab" data-toast="saved"><svg class="ic"><use href="#i-bookmark"/></svg><span data-t="tabSaved">저장</span></button>
     </nav>
   </div>
 </template>
 
 <template id="tpl-partner">
   <div class="screen screen--partner" data-screen="partner">
-    <div class="statusbar"><span>9:41</span><span class="statusbar__icons"><svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="6" width="3" height="6" rx="1"/><rect x="9" y="3.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="1" width="3" height="11" rx="1"/></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 5.6 8.2a3.4 3.4 0 0 1 4.8 0L8 10.6Z"/><path d="M2.8 5.4a7.4 7.4 0 0 1 10.4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg viewBox="0 0 26 12" aria-hidden="true"><rect x="0.5" y="1" width="20" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2.5" y="3" width="14" height="6" rx="1.6"/><rect x="22.5" y="4" width="2.4" height="4" rx="1.2"/></svg></span></div>
-
     <div class="appbar">
-      <span class="appbar__title" data-en="SceneRoad Partner">씬로드 파트너</span>
+      <span class="appbar__title" data-t="partnerTitle">씬로드 파트너</span>
       <div class="region">
-        <button type="button" class="region__btn" id="regionBtn" aria-expanded="false"><span data-en="Anguk area">안국 지역</span><svg class="ic ic--xs"><use href="#i-chev-left"/></svg></button>
+        <button type="button" class="region__btn" aria-expanded="false"><span data-t="regionAnguk">안국 지역</span><svg class="ic ic--xs"><use href="#i-chev-down"/></svg></button>
         <div class="region__menu" hidden>
-          <button type="button" class="region__item is-active" data-en="Anguk area">안국 지역</button>
-          <button type="button" class="region__item is-off" disabled><span data-en="Bukchon area">북촌 지역</span><em data-en="Soon">준비 중</em></button>
-          <button type="button" class="region__item is-off" disabled><span data-en="Ikseon area">익선동 지역</span><em data-en="Soon">준비 중</em></button>
-          <button type="button" class="region__item is-off" disabled><span data-en="Seochon area">서촌 지역</span><em data-en="Soon">준비 중</em></button>
+          <button type="button" class="region__item is-active"><span data-t="regionAnguk">안국 지역</span></button>
+          <button type="button" class="region__item is-off" disabled><span data-t="regionBukchon">북촌 지역</span><em data-t="soon">준비 중</em></button>
+          <button type="button" class="region__item is-off" disabled><span data-t="regionIkseon">익선동 지역</span><em data-t="soon">준비 중</em></button>
+          <button type="button" class="region__item is-off" disabled><span data-t="regionSeochon">서촌 지역</span><em data-t="soon">준비 중</em></button>
         </div>
       </div>
     </div>
@@ -281,70 +331,77 @@
     <div class="scroll">
       <div class="kpis">
         <div class="kpi">
-          <p class="kpi__label" data-en="Walk score (500m)">보행 점수 (500m)</p>
-          <p class="kpi__value">88<span class="kpi__unit" data-en="pt">점</span></p>
-          <p class="kpi__delta"><svg class="ic ic--xs"><use href="#i-arrow-right"/></svg><span data-en="+24% vs last week">전주 대비 +24%</span></p>
+          <p class="kpi__label" data-t="kpiWalk">보행 점수 (500m)</p>
+          <p class="kpi__value">88<span class="kpi__unit" data-t="kpiPoint">점</span></p>
+          <p class="kpi__delta"><svg class="ic ic--xs"><use href="#i-arrow-right"/></svg><span data-t="kpiWalkDelta">전주 대비 +24%</span></p>
         </div>
         <div class="kpi">
-          <p class="kpi__label" data-en="Foreign spending share">외국인 소비 비중</p>
+          <p class="kpi__label" data-t="kpiForeign">외국인 소비 비중</p>
           <p class="kpi__value">34.2<span class="kpi__unit">%</span></p>
-          <p class="kpi__delta"><svg class="ic ic--xs"><use href="#i-arrow-right"/></svg><span data-en="+8.1%p vs last week">전주 대비 +8.1%p</span></p>
+          <p class="kpi__delta"><svg class="ic ic--xs"><use href="#i-arrow-right"/></svg><span data-t="kpiForeignDelta">전주 대비 +8.1%p</span></p>
         </div>
       </div>
 
       <div class="chartcard">
         <div class="chartcard__head">
-          <p class="chartcard__title" data-en="Visitor flow by hour">시간대별 방문 흐름</p>
-          <span class="peak" data-en="3 PM peak">15시 피크</span>
+          <p class="chartcard__title" data-t="chartTitle">시간대별 방문 흐름</p>
+          <span class="peak" data-t="chartPeak">15시 피크</span>
         </div>
         <div class="chart" role="img" aria-label="11시부터 18시까지 방문 흐름. 15시가 가장 높습니다.">
-          <div class="bar" style="--h:42%"><span>42</span><em>11시</em></div>
-          <div class="bar" style="--h:56%"><span>56</span><em>12시</em></div>
-          <div class="bar" style="--h:63%"><span>63</span><em>13시</em></div>
-          <div class="bar" style="--h:74%"><span>74</span><em>14시</em></div>
-          <div class="bar bar--peak" style="--h:100%"><span>98</span><em>15시</em></div>
-          <div class="bar" style="--h:78%"><span>78</span><em>16시</em></div>
-          <div class="bar" style="--h:66%"><span>66</span><em>17시</em></div>
-          <div class="bar" style="--h:49%"><span>49</span><em>18시</em></div>
+          <div class="bar" style="--h:42%"><span>42</span><em>11</em></div>
+          <div class="bar" style="--h:56%"><span>56</span><em>12</em></div>
+          <div class="bar" style="--h:63%"><span>63</span><em>13</em></div>
+          <div class="bar" style="--h:74%"><span>74</span><em>14</em></div>
+          <div class="bar bar--peak" style="--h:100%"><span>98</span><em>15</em></div>
+          <div class="bar" style="--h:78%"><span>78</span><em>16</em></div>
+          <div class="bar" style="--h:66%"><span>66</span><em>17</em></div>
+          <div class="bar" style="--h:49%"><span>49</span><em>18</em></div>
+        </div>
+      </div>
+
+      <div class="insight">
+        <span class="insight__fig"><svg viewBox="0 0 12 12" aria-hidden="true" class="px"><use href="#px-face"/></svg></span>
+        <div class="insight__body">
+          <p class="pxlabel">GUIDE PICKS</p>
+          <p class="insight__title" data-insight="title"></p>
+          <p class="insight__text" data-insight="text"></p>
         </div>
       </div>
 
       <div class="tips">
-        <p class="tips__title"><svg class="ic"><use href="#i-bulb"/></svg><span data-en="Today's operation tips">오늘의 운영 팁</span></p>
+        <p class="tips__title"><svg class="ic"><use href="#i-bulb"/></svg><span data-t="tipsTitle">오늘의 운영 팁</span></p>
         <ul>
-          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-en="14:00 to 16:00 is the busiest window of the day.">14시부터 16시가 가장 붐비는 시간대입니다.</span></li>
-          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-en="On days with many foreign visitors, keep the English menu ready.">외국인 방문이 많은 날은 메뉴판 영문 표기를 챙겨 주세요.</span></li>
-          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-en="Telling guests the expected wait keeps satisfaction high.">예상 대기 시간을 안내하면 매장 만족도가 높아집니다.</span></li>
+          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-t="tip1">14시부터 16시가 가장 붐비는 시간대입니다.</span></li>
+          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-t="tip2">외국인 방문이 많은 날은 메뉴판 영문 표기를 챙겨 주세요.</span></li>
+          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-t="tip3">예상 대기 시간을 안내하면 매장 만족도가 높아집니다.</span></li>
         </ul>
       </div>
-      <p class="listnote" data-en="Data based on the third week of November 2026.">데이터 기준 2026년 11월 셋째 주</p>
+      <p class="listnote" data-t="partnerNote">데이터 기준 2026년 11월 셋째 주</p>
     </div>
 
     <nav class="tabbar" aria-label="하단 메뉴">
-      <button type="button" class="tab is-active" data-toast="대시보드가 열려 있습니다."><svg class="ic"><use href="#i-chart"/></svg><span data-en="Dashboard">대시보드</span></button>
-      <button type="button" class="tab" data-toast="방문자 분석은 프로토타입에서 예시로만 열립니다."><svg class="ic"><use href="#i-users"/></svg><span data-en="Visitors">방문자 분석</span></button>
-      <button type="button" class="tab" data-toast="캠페인 화면은 프로토타입에서 준비 중입니다."><svg class="ic"><use href="#i-mega"/></svg><span data-en="Campaign">캠페인</span></button>
-      <button type="button" class="tab" data-toast="매장 정보 화면은 프로토타입에서 준비 중입니다."><svg class="ic"><use href="#i-user"/></svg><span data-en="Account">내 정보</span></button>
+      <button type="button" class="tab is-active" data-toast="dash"><svg class="ic"><use href="#i-chart"/></svg><span data-t="tabDash">대시보드</span></button>
+      <button type="button" class="tab" data-toast="visitors"><svg class="ic"><use href="#i-users"/></svg><span data-t="tabVisitors">방문자 분석</span></button>
+      <button type="button" class="tab" data-toast="campaign"><svg class="ic"><use href="#i-mega"/></svg><span data-t="tabCampaign">캠페인</span></button>
+      <button type="button" class="tab" data-toast="account"><svg class="ic"><use href="#i-user"/></svg><span data-t="tabAccount">내 정보</span></button>
     </nav>
   </div>
 </template>
 
 <template id="tpl-course">
   <div class="screen screen--course" data-screen="course">
-    <div class="statusbar"><span>9:41</span><span class="statusbar__icons"><svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="6" width="3" height="6" rx="1"/><rect x="9" y="3.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="1" width="3" height="11" rx="1"/></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 5.6 8.2a3.4 3.4 0 0 1 4.8 0L8 10.6Z"/><path d="M2.8 5.4a7.4 7.4 0 0 1 10.4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg viewBox="0 0 26 12" aria-hidden="true"><rect x="0.5" y="1" width="20" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2.5" y="3" width="14" height="6" rx="1.6"/><rect x="22.5" y="4" width="2.4" height="4" rx="1.2"/></svg></span></div>
-
     <div class="appbar appbar--back">
       <button type="button" class="back" data-go="home" aria-label="뒤로"><svg class="ic"><use href="#i-chev-left"/></svg></button>
-      <span class="appbar__title" data-en="Business Proposal Anguk walk course">사내맞선 안국 도보 코스</span>
+      <span class="appbar__title" data-course-title></span>
     </div>
 
     <div class="scroll">
       <div class="minimap">
-        <span class="minimap__chip" data-en="Anguk (Jongno-gu)">안국 (종로구)</span>
+        <span class="minimap__chip" data-t="mapChip">안국 (종로구)</span>
         <svg viewBox="0 0 252 98" class="minimap__svg" aria-label="안국에서 1번, 2번, 3번 지점으로 이어지는 도보 동선">
           <defs>
             <linearGradient id="mmBase" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#F7FCFF"/>
+              <stop offset="0" stop-color="#F8FDFF"/>
               <stop offset="1" stop-color="#E4F2FC"/>
             </linearGradient>
           </defs>
@@ -358,120 +415,78 @@
           <g class="mm-node"><circle cx="26" cy="84" r="9"/><text x="26" y="84">1</text></g>
           <g class="mm-node"><circle cx="84" cy="64" r="9"/><text x="84" y="64">2</text></g>
           <g class="mm-node"><circle cx="168" cy="34" r="9"/><text x="168" y="34">3</text></g>
+          <svg x="198" y="2" width="30" height="38" viewBox="0 0 30 38" class="mm-guide"><use href="#px-guide-walk"/></svg>
         </svg>
       </div>
 
+      <p class="guide guide--course">
+        <span class="guide__avatar"><svg viewBox="0 0 12 12" aria-hidden="true" class="px"><use href="#px-face"/></svg></span>
+        <span class="guide__text" data-guide="course"></span>
+      </p>
+
       <div class="chips" data-filter="course">
-        <button type="button" class="chip is-active" data-cat="all" data-en="All">전체</button>
-        <button type="button" class="chip" data-cat="korean" data-en="Korean">한식</button>
-        <button type="button" class="chip" data-cat="cafe" data-en="Cafe">카페</button>
-        <button type="button" class="chip" data-cat="tea" data-en="Tea house">전통찻집</button>
-        <button type="button" class="chip" data-cat="shop" data-en="Shop">상점</button>
+        <button type="button" class="chip is-active" data-cat="all" data-t="catAll">전체</button>
+        <button type="button" class="chip" data-cat="korean" data-t="catKorean">한식</button>
+        <button type="button" class="chip" data-cat="cafe" data-t="catCafe">카페</button>
+        <button type="button" class="chip" data-cat="tea" data-t="catTea">전통찻집</button>
+        <button type="button" class="chip" data-cat="shop" data-t="catShop">상점</button>
       </div>
 
-      <ol class="steps">
-        <li class="step" data-cat="korean">
-          <span class="step__num">1</span>
-          <span class="step__img"><img src="assets/spot-onmigwan.jpg" alt="온미관 안국 한식 상차림" loading="lazy"></span>
-          <span class="step__text">
-            <span class="step__name" data-en="Onmigwan Anguk">온미관 안국</span>
-            <span class="step__meta"><span data-en="Korean">한식점</span><span class="vbar"></span><span data-en="Gamgodang-gil alley">감고당길 골목 안쪽</span></span>
-          </span>
-          <span class="step__walk" data-en="5 min">도보 5분</span>
-        </li>
-        <li class="step" data-cat="cafe">
-          <span class="step__num">2</span>
-          <span class="step__img"><img src="assets/spot-dotblanket.jpg" alt="도트블랭킷 브런치 팬케이크" loading="lazy"></span>
-          <span class="step__text">
-            <span class="step__name" data-en="Dot Blanket">도트블랭킷</span>
-            <span class="step__meta"><span data-en="Brunch cafe">브런치 카페</span><span class="vbar"></span><span data-en="Near Anguk Station">안국역 인근</span></span>
-          </span>
-          <span class="step__walk" data-en="7 min">도보 7분</span>
-        </li>
-        <li class="step" data-cat="tea">
-          <span class="step__num">3</span>
-          <span class="step__img"><img src="assets/spot-teatherapy.jpg" alt="티테라피 행랑점 한옥 골목" loading="lazy"></span>
-          <span class="step__text">
-            <span class="step__name" data-en="Tea Therapy Haengnang">티테라피 행랑점</span>
-            <span class="step__meta"><span data-en="Tea house">한옥 찻집</span><span class="vbar"></span><span data-en="Unbosan-gil alley">운보살길 골목자락</span></span>
-          </span>
-          <span class="step__walk" data-en="4 min">도보 4분</span>
-        </li>
-      </ol>
-      <p class="empty" hidden data-en="No shop is registered on this course yet.">이 코스에 등록된 상점이 아직 없습니다.</p>
+      <ol class="steps" data-course-steps></ol>
+      <p class="empty" hidden data-t="emptyCourse">이 코스에 등록된 상점이 아직 없습니다.</p>
+      <p class="listnote listnote--course" data-t="courseNote">도보 시간은 현장 사정에 따라 조금 달라질 수 있습니다.</p>
 
       <button type="button" class="cta" id="startWalk">
-        <svg class="ic"><use href="#i-walk"/></svg><span data-en="Start the walk course">도보 동선 시작하기</span>
+        <svg class="ic"><use href="#i-walk"/></svg><span data-walk-label>도보 동선 시작하기</span>
       </button>
     </div>
 
     <nav class="tabbar" aria-label="하단 메뉴">
-      <button type="button" class="tab is-active" data-go="course"><svg class="ic"><use href="#i-route"/></svg><span data-en="Route">동선</span></button>
-      <button type="button" class="tab" data-go="spots"><svg class="ic"><use href="#i-search"/></svg><span data-en="Explore">탐색</span></button>
-      <button type="button" class="tab" data-go="course"><svg class="ic"><use href="#i-map"/></svg><span data-en="Map">지도</span></button>
-      <button type="button" class="tab" data-toast="저장한 코스는 프로토타입에서 예시로만 열립니다."><svg class="ic"><use href="#i-bookmark"/></svg><span data-en="Saved">저장</span></button>
+      <button type="button" class="tab is-active" data-go="course"><svg class="ic"><use href="#i-route"/></svg><span data-t="tabRoute">동선</span></button>
+      <button type="button" class="tab" data-go="spots"><svg class="ic"><use href="#i-search"/></svg><span data-t="tabExplore">탐색</span></button>
+      <button type="button" class="tab" data-go="course"><svg class="ic"><use href="#i-map"/></svg><span data-t="tabMap">지도</span></button>
+      <button type="button" class="tab" data-toast="saved"><svg class="ic"><use href="#i-bookmark"/></svg><span data-t="tabSaved">저장</span></button>
     </nav>
   </div>
 </template>
 
 <template id="tpl-spots">
   <div class="screen screen--spots" data-screen="spots">
-    <div class="statusbar"><span>9:41</span><span class="statusbar__icons"><svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="6" width="3" height="6" rx="1"/><rect x="9" y="3.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="1" width="3" height="11" rx="1"/></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 5.6 8.2a3.4 3.4 0 0 1 4.8 0L8 10.6Z"/><path d="M2.8 5.4a7.4 7.4 0 0 1 10.4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg viewBox="0 0 26 12" aria-hidden="true"><rect x="0.5" y="1" width="20" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2.5" y="3" width="14" height="6" rx="1.6"/><rect x="22.5" y="4" width="2.4" height="4" rx="1.2"/></svg></span></div>
-
     <div class="appbar appbar--back">
       <button type="button" class="back" data-go="home" aria-label="뒤로"><svg class="ic"><use href="#i-chev-left"/></svg></button>
-      <span class="appbar__title" data-en="Local spots around Anguk">안국 주변 로컬 스팟</span>
+      <span class="appbar__title" data-t="spotsTitle">안국 주변 로컬 스팟</span>
     </div>
 
     <div class="scroll">
-      <p class="listhead" data-en="Within 10 minutes on foot">촬영지에서 걸어서 10분 이내</p>
-      <div class="chips" data-filter="spots">
-        <button type="button" class="chip is-active" data-cat="all" data-en="All">전체</button>
-        <button type="button" class="chip" data-cat="korean" data-en="Korean">한식</button>
-        <button type="button" class="chip" data-cat="cafe" data-en="Cafe">카페</button>
-        <button type="button" class="chip" data-cat="tea" data-en="Tea house">전통찻집</button>
-        <button type="button" class="chip" data-cat="shop" data-en="Shop">상점</button>
+      <div class="listhead-row">
+        <p class="listhead" data-t="listHead">촬영지에서 걸어서 10분 이내</p>
+        <button type="button" class="enonly" data-enonly aria-pressed="false">
+          <span class="enonly__badge">EN</span><span data-t="menuOnly">영어 메뉴만</span>
+        </button>
       </div>
 
-      <ul class="spotlist">
-        <li class="spotcard" data-cat="korean">
-          <span class="spotcard__img"><img src="assets/spot-onmigwan.jpg" alt="온미관 안국 한식 상차림" loading="lazy"></span>
-          <div class="spotcard__body">
-            <p class="spotcard__name" data-en="Onmigwan Anguk">온미관 안국</p>
-            <p class="spotcard__meta"><span class="cat" data-en="Korean">한식당</span><span class="vbar"></span><i class="rating">★ 4.6</i><span class="count">(213)</span><span class="vbar"></span><span class="dist">260m</span></p>
-            <p class="spotcard__desc" data-en="A modern Korean dining room tucked in the Gamgodang-gil alley.">감고당길 골목 안쪽에 자리한 모던 한식 다이닝</p>
-          </div>
-        </li>
-        <li class="spotcard" data-cat="cafe">
-          <span class="spotcard__img"><img src="assets/spot-dotblanket.jpg" alt="도트블랭킷 브런치 팬케이크" loading="lazy"></span>
-          <div class="spotcard__body">
-            <p class="spotcard__name" data-en="Dot Blanket">도트블랭킷</p>
-            <p class="spotcard__meta"><span class="cat" data-en="Brunch cafe">브런치 카페</span><span class="vbar"></span><i class="rating">★ 4.8</i><span class="dist">320m</span></p>
-            <p class="spotcard__desc" data-en="European brunch and plated desserts in a bright local cafe.">유럽식 브런치와 플레이티드 디저트가 인기 있는 로컬 카페</p>
-          </div>
-        </li>
-        <li class="spotcard" data-cat="tea">
-          <span class="spotcard__img"><img src="assets/spot-teatherapy.jpg" alt="티테라피 행랑점 한옥 골목" loading="lazy"></span>
-          <div class="spotcard__body">
-            <p class="spotcard__name" data-en="Tea Therapy Haengnang">티테라피 행랑점</p>
-            <p class="spotcard__meta"><span class="cat" data-en="Tea house">한옥 찻집</span><span class="vbar"></span><i class="rating">★ 4.6</i><span class="dist">380m</span></p>
-            <p class="spotcard__desc" data-en="A quiet hanok tea house at the end of the Unbosan-gil alley.">운보살길 골목자락, 고즈넉한 한옥 전통 찻집</p>
-          </div>
-        </li>
-      </ul>
-      <p class="empty" hidden data-en="No shop is registered here yet. It will open soon.">이 지역에 등록된 상점이 아직 없습니다. 곧 추가됩니다.</p>
-      <p class="listnote" data-en="Opening hours may change on the day of your visit.">영업시간은 방문 당일 매장 사정에 따라 달라질 수 있습니다.</p>
+      <div class="chips" data-filter="spots">
+        <button type="button" class="chip is-active" data-cat="all" data-t="catAll">전체</button>
+        <button type="button" class="chip" data-cat="korean" data-t="catKorean">한식</button>
+        <button type="button" class="chip" data-cat="cafe" data-t="catCafe">카페</button>
+        <button type="button" class="chip" data-cat="tea" data-t="catTea">전통찻집</button>
+        <button type="button" class="chip" data-cat="shop" data-t="catShop">상점</button>
+      </div>
+
+      <ul class="spotlist" data-spot-list></ul>
+      <p class="empty" hidden data-t="emptySpots">조건에 맞는 상점이 아직 없습니다. 곧 추가됩니다.</p>
+      <p class="listnote" data-t="spotNote">영업시간과 영어 메뉴 운영은 방문 당일 매장 사정에 따라 달라질 수 있습니다.</p>
     </div>
 
     <nav class="tabbar" aria-label="하단 메뉴">
-      <button type="button" class="tab is-active" data-go="spots"><svg class="ic"><use href="#i-pin"/></svg><span data-en="Local spots">로컬 스팟</span></button>
-      <button type="button" class="tab" data-go="course"><svg class="ic"><use href="#i-map"/></svg><span data-en="Map">지도</span></button>
-      <button type="button" class="tab" data-toast="리뷰 화면은 프로토타입에서 예시로만 열립니다."><svg class="ic"><use href="#i-star"/></svg><span data-en="Reviews">리뷰</span></button>
-      <button type="button" class="tab" data-toast="저장한 스팟은 프로토타입에서 예시로만 열립니다."><svg class="ic"><use href="#i-bookmark"/></svg><span data-en="Saved">저장</span></button>
+      <button type="button" class="tab is-active" data-go="spots"><svg class="ic"><use href="#i-pin"/></svg><span data-t="tabSpots">로컬 스팟</span></button>
+      <button type="button" class="tab" data-go="course"><svg class="ic"><use href="#i-map"/></svg><span data-t="tabMap">지도</span></button>
+      <button type="button" class="tab" data-toast="reviews"><svg class="ic"><use href="#i-star"/></svg><span data-t="tabReviews">리뷰</span></button>
+      <button type="button" class="tab" data-toast="saved"><svg class="ic"><use href="#i-bookmark"/></svg><span data-t="tabSaved">저장</span></button>
     </nav>
   </div>
 </template>
 
-<script src="app.js?v=20261126b"></script>
+<script src="app.js?v=20261126d"></script>
 </body>
 </html>
