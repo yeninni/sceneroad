@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SceneRoad 씬로드 | K-콘텐츠 촬영지 로컬 투어 앱 프로토타입</title>
-<meta name="description" content="드라마 촬영지와 주변 로컬 상점을 잇는 씬로드(SceneRoad) 앱 프로토타입입니다. 여행 취향을 고르면 픽셀 가이드가 맞춤 코스와 로컬 스팟을 안내합니다.">
+<title>씬로드 SceneRoad | K-콘텐츠 속 주인공이 되는 여행</title>
+<meta name="description" content="좋아하는 드라마 속 그 골목을 걸어 보세요. 씬로가 촬영지와 주변 가게를 잇는 산책 코스와 한산한 방문 시간을 알려 드려요.">
 <meta name="theme-color" content="#38BDF8">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +53,7 @@
   </a>
 
   <div class="viewswitch" role="tablist" aria-label="화면 보기 방식">
-    <button type="button" class="viewswitch__btn is-active" data-view="overview" role="tab" aria-selected="true" aria-controls="view-overview">전체 한눈에 보기</button>
+    <button type="button" class="viewswitch__btn is-active" data-view="overview" role="tab" aria-selected="true" aria-controls="view-overview">한눈에 보기</button>
     <button type="button" class="viewswitch__btn" data-view="mobile" role="tab" aria-selected="false" aria-controls="view-mobile">모바일로 체험하기</button>
   </div>
 
@@ -62,7 +62,7 @@
 
 <main>
   <!-- 전체 한눈에 보기 -->
-  <section class="view is-active" id="view-overview" role="tabpanel" aria-label="전체 한눈에 보기">
+<section class="view is-active" id="view-overview" role="tabpanel" aria-label="한눈에 보기">
     <div class="board-wrap">
       <div class="board" id="board">
 
@@ -71,62 +71,62 @@
             <span class="brand2__mark"><svg viewBox="0 0 30 38" aria-hidden="true" class="px px--cam"><use href="#px-camera"/></svg></span>
             <div>
               <p class="brand2__name">SceneRoad</p>
-              <p class="brand2__sub">씬로드 <span class="vbar"></span> 로컬 투어 앱</p>
+              <p class="brand2__sub">씬로드 <span class="vbar"></span> 촬영지 여행 앱</p>
             </div>
           </div>
 
           <div class="pxcard">
             <div class="pxcard__text">
               <p class="pxlabel">PIXEL GUIDE</p>
-              <p class="pxcard__name">씬로, 여행 취향을 묻는 안내자</p>
-              <p class="pxcard__body">방문객이 고른 취향에 맞춰 인사말과 도보 코스, 추천 스팟이 함께 바뀝니다.</p>
+              <p class="pxcard__name">함께 걷는 여행 가이드, 씬로</p>
+              <p class="pxcard__body">드라마 속 골목부터 한옥 찻집까지, 취향에 맞는 코스를 골라 줘요.</p>
             </div>
             <img src="assets/pixel-guide-intro.png" alt="여행 티켓을 들고 고개를 갸웃하는 씬로" class="pxcard__fig" width="175" height="244" loading="lazy" decoding="async">
           </div>
 
-          <h1 class="headline">K-콘텐츠 촬영지를<br>가장 한산한 시간에<br>걷는 투어 앱</h1>
-          <p class="lede">외국인 방문객이 언어와 취향을 고르면, 촬영지와 주변 골목 가게를 잇는 도보 코스와 줄 안 서는 방문 시간을 함께 안내합니다. 영어 메뉴가 되는 가게와 대기가 짧은 때까지 한 화면에 모았습니다.</p>
+          <h1 class="headline">K-콘텐츠 속<br>주인공이 되는 여행</h1>
+          <p class="lede">좋아하는 드라마 속 그 골목을 걸어 보세요. 씬로가 촬영지부터 근처 맛집과 카페까지, 취향에 맞는 코스를 안내해요. 한산한 시간과 영어 메뉴가 있는 가게도 찾아볼 수 있어요.</p>
 
           <div class="problem">
             <p class="pxlabel">PROBLEM</p>
-            <p class="problem__text">가고 싶은 촬영지가 언제 한산한지, 어디로 이어 걸을지 알기 어렵습니다.</p>
+            <p class="problem__text">촬영지는 찾았는데, 언제 가면 좋고 근처에 어디를 더 들를 수 있을까요?</p>
           </div>
 
           <ul class="roles">
             <li class="role">
               <span class="role__badge role__badge--v">01</span>
-              <div><p class="role__title">언어와 취향 맞춤</p><p class="role__desc">EN, JP, KR과 취향 태그를 고르면 인사말과 코스가 바로 바뀝니다</p></div>
+              <div><p class="role__title">내 취향대로 걷기</p><p class="role__desc">드라마 촬영지, 골목 맛집, 한옥 카페 등 좋아하는 곳을 골라요.</p></div>
             </li>
             <li class="role">
               <span class="role__badge role__badge--p">02</span>
-              <div><p class="role__title">한산한 시간 추천</p><p class="role__desc">시간대별 혼잡도를 읽어 줄 안 서는 방문 시간을 알려 줍니다</p></div>
+              <div><p class="role__title">한산한 시간에 가기</p><p class="role__desc">시간대별 혼잡도를 보고 여유롭게 둘러볼 시간을 골라요.</p></div>
             </li>
             <li class="role">
               <span class="role__badge role__badge--c">03</span>
-              <div><p class="role__title">로컬 골목 연결</p><p class="role__desc">촬영지에서 도보 몇 분 거리 골목 가게와 영어 메뉴까지 확인</p></div>
+              <div><p class="role__title">골목 가게 들르기</p><p class="role__desc">촬영지에서 걸어갈 만한 거리의 가게와 영어 메뉴 여부를 확인해요.</p></div>
             </li>
           </ul>
 
           <div class="flow">
             <p class="pxlabel">HOW IT WORKS</p>
             <ol class="flow__list">
-              <li><b>1</b><span>드라마 촬영지 고르기</span></li>
-              <li><b>2</b><span>한산한 방문 시간 확인</span></li>
-              <li><b>3</b><span>골목 도보 코스 따라 걷기</span></li>
+              <li><b>1</b><span>여행 취향 고르기</span></li>
+              <li><b>2</b><span>방문하기 좋은 시간 확인하기</span></li>
+              <li><b>3</b><span>씬로와 골목 코스 따라 걷기</span></li>
             </ol>
           </div>
 
           <div class="effect">
             <p class="effect__title"><svg class="ic"><use href="#i-walk"/></svg>기대 효과</p>
-            <p class="effect__body">촬영지에 머무는 시간을 늘리고, 도보 5분 안쪽 골목 가게로 방문을 이어 지역 상권 유입을 만듭니다.</p>
+            <p class="effect__body">촬영지를 찾아온 여행자가 골목을 더 오래 둘러보고, 근처 가게에도 들를 수 있어요.</p>
           </div>
 
           <nav class="screenlist" aria-label="화면 바로 열기">
             <p class="pxlabel">SCREENS</p>
-            <button type="button" class="screenlist__item" data-open="home"><b>01</b><span>방문객 홈</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
-            <button type="button" class="screenlist__item" data-open="crowd"><b>02</b><span>방문 시간 &amp; 혼잡도</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
+            <button type="button" class="screenlist__item" data-open="home"><b>01</b><span>여행 홈</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
+            <button type="button" class="screenlist__item" data-open="crowd"><b>02</b><span>방문 시간과 혼잡도</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
             <button type="button" class="screenlist__item" data-open="course"><b>03</b><span>도보 코스</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
-            <button type="button" class="screenlist__item" data-open="spots"><b>04</b><span>로컬 스팟</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
+            <button type="button" class="screenlist__item" data-open="spots"><b>04</b><span>주변 가게</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></button>
           </nav>
         </aside>
 
@@ -136,69 +136,69 @@
           <div>
             <p class="pxlabel">WHAT IT DOES</p>
             <h2 class="panel__title">핵심 기능 4가지</h2>
-            <p class="panel__sub">촬영지와 상권 데이터를 묶어 외국인 방문객의 하루 동선을 안내합니다</p>
+            <p class="panel__sub">장면을 찾아가는 길부터 골목에서 쉬어 갈 곳까지.</p>
 
             <ul class="features">
               <li class="feature">
                 <span class="feature__num">01</span>
-                <div><p class="feature__title"><svg class="ic"><use href="#i-route"/></svg>취향 맞춤 동선</p><p class="feature__body">고른 취향과 남은 시간에 맞춰 촬영지와 로컬 상점을 잇는 도보 코스를 다시 짭니다.</p></div>
+                <div><p class="feature__title"><svg class="ic"><use href="#i-route"/></svg>취향에 맞는 산책 코스</p><p class="feature__body">드라마 장면을 찾아가거나, 한옥 찻집에 들르는 등 취향에 맞춰 걷는 길을 추천해요.</p></div>
               </li>
               <li class="feature">
                 <span class="feature__num">02</span>
-                <div><p class="feature__title"><svg class="ic"><use href="#i-chart"/></svg>혼잡도와 방문 시간</p><p class="feature__body">시간대별 방문객 흐름을 읽어 지금 혼잡도와 줄 안 서는 방문 시간을 알려 줍니다.</p></div>
+                <div><p class="feature__title"><svg class="ic"><use href="#i-chart"/></svg>방문하기 좋은 시간</p><p class="feature__body">시간대별 방문객 수를 비교해 덜 붐비는 때를 찾아볼 수 있어요.</p></div>
               </li>
               <li class="feature">
                 <span class="feature__num">03</span>
-                <div><p class="feature__title"><svg class="ic"><use href="#i-pin"/></svg>로컬 골목 연결</p><p class="feature__body">온미관 안국, 도트블랭킷, 티테라피 행랑점처럼 촬영지 주변의 실제 골목 가게를 잇습니다.</p></div>
+                <div><p class="feature__title"><svg class="ic"><use href="#i-pin"/></svg>촬영지 주변 가게</p><p class="feature__body">온미관 안국과 티테라피 행랑점처럼 촬영지 근처에서 쉬어 갈 곳을 소개해요.</p></div>
               </li>
               <li class="feature">
                 <span class="feature__num">04</span>
-                <div><p class="feature__title"><svg class="ic"><use href="#i-globe"/></svg>다국어와 여행 취향</p><p class="feature__body">영어, 일본어, 한국어 안내에 더해 영어 메뉴 여부와 취향 태그로 외국인 방문객의 선택을 돕습니다.</p></div>
+                <div><p class="feature__title"><svg class="ic"><use href="#i-globe"/></svg>세 가지 언어로 안내</p><p class="feature__body">한국어, 영어, 일본어 중 편한 언어를 고르고 영어 메뉴가 있는 가게만 볼 수 있어요.</p></div>
               </li>
             </ul>
 
             <div class="datanote">
-              <p class="datanote__title">연계 데이터 기반 설계</p>
-              <p class="datanote__body">원윈도우 개방 데이터(KMDB 영화상세, 서울시 10m 도로 유동인구, 카드 매출, 관광 음식점 흐름 지표)를 결합해 도보 동선과 한산한 방문 시간을 산출합니다.</p>
+              <p class="datanote__title">코스와 방문 시간은 어떻게 고르나요?</p>
+              <p class="datanote__body">원윈도우에서 제공하는 KMDB 영화 정보, 서울시 10m 도로 유동인구, 카드 매출과 관광객의 음식점 이용 지표를 활용해 코스와 방문 시간을 추천하는 방식으로 설계했어요.</p>
             </div>
 
             <div class="metricrow">
-              <div><span>지금 혼잡도</span><b>여유</b></div>
-              <div><span>추천 방문</span><b>11시</b></div>
-              <div><span>피크 시간</span><b>15시</b></div>
+              <div><span>현재 혼잡도</span><b>한산</b></div>
+              <div><span>추천 시간</span><b>오전 11시</b></div>
+              <div><span>가장 붐빌 때</span><b>오후 3시</b></div>
             </div>
 
             <div class="flowdata">
               <p class="pxlabel">DATA FLOW</p>
               <div class="flowdata__row">
-                <span>개방 데이터</span><i class="flowdata__arrow"></i><span>혼잡도 예보</span><i class="flowdata__arrow"></i><span>방문 시간</span>
+                <span>공공데이터</span><i class="flowdata__arrow"></i><span>혼잡도 분석</span><i class="flowdata__arrow"></i><span>시간 추천</span>
               </div>
-              <p class="flowdata__note">서울시 10m 도로 유동인구와 카드 매출 시간대 패턴을 묶어 취향별 코스와 한산한 시간을 계산합니다.</p>
+              <p class="flowdata__note">서울시 도로 유동인구와 시간대별 카드 매출을 바탕으로 골목이 덜 붐비는 때를 찾는 방식이에요.</p>
             </div>
           </div>
 
           <div class="quotecard">
             <div class="quotecard__head">
               <p class="pxlabel">GUIDE SAYS</p>
-              <span class="quotecard__tag">혼잡도 낮은 때</span>
+              <span class="quotecard__tag">친구와 사진 찍기</span>
             </div>
             <div class="quotecard__main">
               <img src="assets/pixel-guide-camera.png" alt="씬로 픽셀 가이드" class="quotecard__fig" loading="lazy" decoding="async">
               <div class="bubble">
-                <p class="bubble__text">“사진은 다섯 시가 제일 예뻐. <em>세 시만 피하면 돼.</em>”</p>
+                <p class="bubble__text">“친구랑 사진 찍을 거야? <em>오후 다섯 시쯤엔 골목에 노을이 들어와.</em>”</p>
               </div>
             </div>
-            <p class="quotecard__sub">취향을 고른 순간, 인사말과 코스가 다시 쓰이고 추천 방문 시간도 함께 바뀝니다. 같은 촬영지라도 고른 취향에 따라 걷는 순서와 기다리는 시간이 달라집니다.</p>
+            <p class="quotecard__sub">친구와 사진을 찍을 땐 노을이 드는 시간에, 혼자 걷고 싶을 땐 조용한 오전에. 씬로가 여행에 어울리는 시간을 골라 줘요.</p>
           </div>
 
           <div class="datastack">
             <div class="trytips">
               <p class="trytips__title">화면 둘러보기</p>
               <ul>
-                <li>홈 오른쪽 위에서 EN, JP, KR을 눌러 언어를 바꿀 수 있습니다.</li>
-                <li>여행 취향 태그를 누르면 가이드 멘트와 코스, 추천 방문 시간이 함께 바뀝니다.</li>
-                <li>02 화면에서 시간대별 혼잡도와 줄 안 서는 시간을 확인할 수 있습니다.</li>
-                <li>로컬 스팟에서 영어 메뉴가 되는 곳만 골라 볼 수 있습니다.</li>
+                <li>여행 홈 오른쪽 위에서 안내 언어를 바꿔 보세요.</li>
+                <li>취향을 고르고 코스와 추천 방문 시간이 어떻게 바뀌는지 확인해 보세요.</li>
+                <li>도보 코스에서 씬로가 걷는 길을 미리 볼 수 있어요.</li>
+                <li>주변 가게에서 영어 메뉴가 있는 곳만 볼 수 있어요.</li>
               </ul>
             </div>
           </div>
@@ -206,7 +206,7 @@
 
       </div>
     </div>
-    <p class="board-hint">폰 화면을 누르면 그 화면을 크게 열어 직접 눌러 볼 수 있습니다.</p>
+    <p class="board-hint">화면을 누르면 크게 열려요.</p>
   </section>
 
   <!-- 모바일 체험 -->
@@ -215,12 +215,12 @@
       <div class="stage__rail" role="tablist" aria-label="화면 선택" id="rail"></div>
       <div class="stage__phone" id="stagePhone"></div>
     </div>
-    <p class="stage__hint">언어 전환과 취향 태그, 카테고리 필터가 실제로 동작합니다. 화면을 위아래로 넘겨 내용을 더 볼 수 있습니다.</p>
+    <p class="stage__hint">화면 안을 위아래로 스크롤하면 더 볼 수 있어요.</p>
   </section>
 </main>
 
 <footer class="sitefoot">
-  <p>SceneRoad 씬로드 프로토타입. 화면 속 상점과 수치는 기획 검증을 위한 예시 값입니다.</p>
+  <p>씬로드 프로토타입입니다. 화면에 표시된 평점, 거리, 혼잡도는 예시입니다.</p>
   <p class="sitefoot__credit">사진: CC0 예시 이미지(rawpixel, Wikimedia Commons) <span class="vbar"></span> <a href="https://github.com/yeninni/sceneroad" target="_blank" rel="noopener">GitHub 저장소</a></p>
 </footer>
 
@@ -270,7 +270,7 @@
           <span class="rec__title" data-rec="title"></span>
           <span class="rec__desc" data-rec="desc"></span>
         </span>
-        <span class="rec__more"><span data-t="all">전체</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></span>
+        <span class="rec__more"><span data-t="all">보기</span><svg class="ic ic--xs"><use href="#i-chev-right"/></svg></span>
       </button>
 
       <nav class="quick" aria-label="주요 메뉴">
@@ -280,20 +280,20 @@
         </button>
         <button type="button" class="quick__item" data-go="course">
           <span class="quick__icon"><svg class="ic"><use href="#i-route"/></svg></span>
-          <span class="quick__label" data-t="qRoute">도보 동선</span>
+          <span class="quick__label" data-t="qRoute">도보 코스</span>
         </button>
         <button type="button" class="quick__item" data-go="spots">
           <span class="quick__icon"><svg class="ic"><use href="#i-pin"/></svg></span>
-          <span class="quick__label" data-t="qSpots">로컬 스팟</span>
+          <span class="quick__label" data-t="qSpots">주변 가게</span>
         </button>
         <button type="button" class="quick__item" data-toast="more">
           <span class="quick__icon"><svg class="ic"><use href="#i-grid"/></svg></span>
-          <span class="quick__label" data-t="qMore">더보기</span>
+          <span class="quick__label" data-t="qMore">더 보기</span>
         </button>
       </nav>
 
       <div class="section-head">
-        <h3 data-t="nearby">지금 취향에 맞는 스팟</h3>
+        <h3 data-t="nearby">근처 추천 장소</h3>
         <button type="button" class="section-head__more" data-go="spots" data-t="seeAll">전체 보기</button>
       </div>
 
@@ -312,14 +312,14 @@
 <template id="tpl-crowd">
   <div class="screen screen--crowd" data-screen="crowd">
     <div class="appbar">
-      <span class="appbar__title" data-t="crowdTitle">방문 시간 &amp; 혼잡도</span>
+      <span class="appbar__title" data-t="crowdTitle">방문 시간과 혼잡도</span>
       <div class="region">
-        <button type="button" class="region__btn" aria-expanded="false"><span data-t="regionAnguk">안국 지역</span><svg class="ic ic--xs"><use href="#i-chev-down"/></svg></button>
+        <button type="button" class="region__btn" aria-expanded="false"><span data-t="regionAnguk">안국</span><svg class="ic ic--xs"><use href="#i-chev-down"/></svg></button>
         <div class="region__menu" hidden>
-          <button type="button" class="region__item is-active"><span data-t="regionAnguk">안국 지역</span></button>
-          <button type="button" class="region__item is-off" disabled><span data-t="regionBukchon">북촌 지역</span><em data-t="soon">준비 중</em></button>
-          <button type="button" class="region__item is-off" disabled><span data-t="regionIkseon">익선동 지역</span><em data-t="soon">준비 중</em></button>
-          <button type="button" class="region__item is-off" disabled><span data-t="regionSeochon">서촌 지역</span><em data-t="soon">준비 중</em></button>
+          <button type="button" class="region__item is-active"><span data-t="regionAnguk">안국</span></button>
+          <button type="button" class="region__item is-off" disabled><span data-t="regionBukchon">북촌</span><em data-t="soon">준비 중</em></button>
+          <button type="button" class="region__item is-off" disabled><span data-t="regionIkseon">익선동</span><em data-t="soon">준비 중</em></button>
+          <button type="button" class="region__item is-off" disabled><span data-t="regionSeochon">서촌</span><em data-t="soon">준비 중</em></button>
         </div>
       </div>
     </div>
@@ -327,26 +327,26 @@
     <div class="scroll">
       <div class="crowdtop">
         <div class="crowdcard crowdcard--now">
-          <p class="crowdcard__label"><svg class="ic"><use href="#i-users"/></svg><span data-t="crowdNowLabel">지금 혼잡도</span></p>
-          <p class="crowdcard__value"><span data-t="crowdNowValue">여유</span></p>
+          <p class="crowdcard__label"><svg class="ic"><use href="#i-users"/></svg><span data-t="crowdNowLabel">현재 혼잡도</span></p>
+          <p class="crowdcard__value"><span data-t="crowdNowValue">한산</span></p>
           <span class="crowdlevel" aria-hidden="true"><i class="on"></i><i></i><i></i></span>
-          <p class="crowdcard__note" data-t="crowdNowNote">14시부터 16시만 피하면 한산해요</p>
+          <p class="crowdcard__note" data-t="crowdNowNote">오후 2시부터 4시까지는 붐비는 편이에요.</p>
         </div>
         <div class="crowdcard crowdcard--best">
           <p class="crowdcard__label"><svg class="ic"><use href="#i-star"/></svg><span data-t="crowdBestLabel">추천 방문 시간</span></p>
           <p class="crowdcard__value" data-crowd="best">오전 11시</p>
-          <span class="crowdtags"><em data-t="crowdBestTag1">줄 짧음</em><em data-t="crowdBestTag2">빛 좋음</em></span>
-          <p class="crowdcard__note" data-t="crowdBestNote">줄 안 서고 사진 찍기 좋은 때</p>
+          <span class="crowdtags"><em data-t="crowdBestTag1">짧은 대기</em><em data-t="crowdBestTag2">좋은 채광</em></span>
+          <p class="crowdcard__note" data-t="crowdBestNote">여유롭게 둘러보고 사진 찍기 좋아요.</p>
         </div>
       </div>
 
       <div class="chartcard">
         <div class="chartcard__head">
           <div>
-            <p class="chartcard__title" data-t="crowdChartTitle">시간대별 방문객 흐름</p>
-            <p class="chartcard__sub" data-t="crowdNote">서울시 유동인구와 카드 매출 기준, 2026년 11월</p>
+            <p class="chartcard__title" data-t="crowdChartTitle">시간대별 방문객</p>
+            <p class="chartcard__sub" data-t="crowdNote">2026년 11월 서울시 유동인구와 카드 매출 기준</p>
           </div>
-          <span class="peak" data-t="crowdPeak">15시 피크</span>
+          <span class="peak" data-t="crowdPeak">오후 3시 가장 붐빔</span>
         </div>
         <div class="chart" role="img" aria-label="11시부터 18시까지 방문객 흐름. 15시가 가장 붐빕니다.">
           <div class="bar" style="--h:40%"><em>11</em></div>
@@ -358,7 +358,7 @@
           <div class="bar" style="--h:58%"><em>17</em></div>
           <div class="bar" style="--h:44%"><em>18</em></div>
         </div>
-        <p class="charttip"><svg class="ic"><use href="#i-bulb"/></svg><span data-t="crowdChartTip">15시가 가장 붐벼요. 오전 11시나 17시에 가면 줄 안 서고 사진 찍기 좋아요.</span></p>
+        <p class="charttip"><svg class="ic"><use href="#i-bulb"/></svg><span data-t="crowdChartTip">오후 3시가 가장 붐벼요. 조금 여유롭게 보려면 오전 11시나 오후 5시쯤 가 보세요.</span></p>
       </div>
 
       <div class="insight">
@@ -372,11 +372,11 @@
 
       <div class="tips">
         <p class="pxlabel">CROWD TIP</p>
-        <p class="tips__title"><svg class="ic"><use href="#i-bulb"/></svg><span data-t="crowdTipsTitle">방문 팁</span></p>
+        <p class="tips__title"><svg class="ic"><use href="#i-bulb"/></svg><span data-t="crowdTipsTitle">가기 전에 알아두세요</span></p>
         <ul>
-          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-t="crowdTip1">14시부터 16시는 붐비니 11시 방문을 추천해요.</span></li>
-          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-t="crowdTip2">외국인 카드 결제가 많은 골목이라 영어 메뉴판이 잘 돼 있어요.</span></li>
-          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-t="crowdTip3">사내맞선 촬영지에서 도보 4분, 온미관으로 옮기면 대기가 짧아요.</span></li>
+          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-t="crowdTip1">조용히 걷고 싶다면 오전에 골목을 둘러보세요.</span></li>
+          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-t="crowdTip2">주변 가게에서 영어 메뉴가 있는 곳을 골라 볼 수 있어요.</span></li>
+          <li><svg class="ic ic--xs"><use href="#i-check"/></svg><span data-t="crowdTip3">촬영지에서 온미관 안국까지 걸어서 4분이에요.</span></li>
         </ul>
       </div>
     </div>
@@ -438,8 +438,8 @@
       </div>
 
       <ol class="steps" data-course-steps></ol>
-      <p class="empty" hidden data-t="emptyCourse">이 코스에 등록된 상점이 아직 없습니다.</p>
-      <p class="listnote listnote--course" data-t="courseNote">도보 시간은 현장 사정에 따라 조금 달라질 수 있습니다.</p>
+      <p class="empty" hidden data-t="emptyCourse">이 코스에 해당하는 가게가 없어요.</p>
+      <p class="listnote listnote--course" data-t="courseNote">걸리는 시간은 걸음 속도에 따라 달라질 수 있어요.</p>
 
       <div class="coursesum" data-course-sum>
         <div class="coursesum__stats">
@@ -458,16 +458,16 @@
             <span class="coursesum__value"><b data-sum="en">3</b><em data-t="unitPlace">곳</em></span>
           </div>
         </div>
-        <p class="coursesum__best"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg><span data-sum="best">추천 방문 오전 11시</span></p>
+        <p class="coursesum__best"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg><span data-sum="best">오전 11시 방문 추천</span></p>
       </div>
 
       <button type="button" class="cta" id="startWalk">
-        <svg class="ic"><use href="#i-walk"/></svg><span data-walk-label>도보 동선 시작하기</span>
+        <svg class="ic"><use href="#i-walk"/></svg><span data-walk-label>씬로와 코스 미리 보기</span>
       </button>
     </div>
 
     <nav class="tabbar" aria-label="하단 메뉴">
-      <button type="button" class="tab is-active" data-go="course"><svg class="ic"><use href="#i-route"/></svg><span data-t="tabRoute">동선</span></button>
+      <button type="button" class="tab is-active" data-go="course"><svg class="ic"><use href="#i-route"/></svg><span data-t="tabRoute">코스</span></button>
       <button type="button" class="tab" data-go="spots"><svg class="ic"><use href="#i-search"/></svg><span data-t="tabExplore">탐색</span></button>
       <button type="button" class="tab" data-go="course"><svg class="ic"><use href="#i-map"/></svg><span data-t="tabMap">지도</span></button>
       <button type="button" class="tab" data-toast="saved"><svg class="ic"><use href="#i-bookmark"/></svg><span data-t="tabSaved">저장</span></button>
@@ -479,7 +479,7 @@
   <div class="screen screen--spots" data-screen="spots">
     <div class="appbar appbar--back">
       <button type="button" class="back" data-go="home" aria-label="뒤로"><svg class="ic"><use href="#i-chev-left"/></svg></button>
-      <span class="appbar__title" data-t="spotsTitle">안국 주변 로컬 스팟</span>
+      <span class="appbar__title" data-t="spotsTitle">안국 골목 가게</span>
     </div>
 
     <div class="scroll">
@@ -500,12 +500,12 @@
       </div>
 
       <ul class="spotlist" data-spot-list></ul>
-      <p class="empty" hidden data-t="emptySpots">조건에 맞는 상점이 아직 없습니다. 곧 추가됩니다.</p>
-      <p class="listnote" data-t="spotNote">영업시간과 영어 메뉴 운영은 방문 당일 매장 사정에 따라 달라질 수 있습니다.</p>
+      <p class="empty" hidden data-t="emptySpots">조건에 맞는 가게가 없어요. 다른 조건으로 찾아보세요.</p>
+      <p class="listnote" data-t="spotNote">영업시간과 영어 메뉴는 방문 전에 가게에 확인해 주세요.</p>
     </div>
 
     <nav class="tabbar" aria-label="하단 메뉴">
-      <button type="button" class="tab is-active" data-go="spots"><svg class="ic"><use href="#i-pin"/></svg><span data-t="tabSpots">로컬 스팟</span></button>
+      <button type="button" class="tab is-active" data-go="spots"><svg class="ic"><use href="#i-pin"/></svg><span data-t="tabSpots">주변 가게</span></button>
       <button type="button" class="tab" data-go="course"><svg class="ic"><use href="#i-map"/></svg><span data-t="tabMap">지도</span></button>
       <button type="button" class="tab" data-toast="reviews"><svg class="ic"><use href="#i-star"/></svg><span data-t="tabReviews">리뷰</span></button>
       <button type="button" class="tab" data-toast="saved"><svg class="ic"><use href="#i-bookmark"/></svg><span data-t="tabSaved">저장</span></button>
@@ -513,6 +513,6 @@
   </div>
 </template>
 
-<script src="app.js?v=20261127f"></script>
+<script src="app.js?v=20261127g"></script>
 </body>
 </html>
