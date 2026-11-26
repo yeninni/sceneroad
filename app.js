@@ -166,9 +166,9 @@
       toastWalk: 'Walk route started. {name} is {n} minutes away.',
       toastWalkOff: 'Route guidance stopped.',
       taste: {
-        drama: { label: 'K-drama romance', badge: 'SBS drama', title: 'Business Proposal romance route', sub: 'Gamgodang-gil, Anguk-dong, Seoul, 1.4 km on foot', guide: 'I will start with the Business Proposal spots. The ep.3 ending alley is 5 minutes away.', course: 'Business Proposal Anguk romance', lead: 'Three filming spots, in walking order.', best: '11 AM', crowdTitle: 'The Business Proposal alley is quiet at 11 AM', crowd: 'Groups arrive at 3 PM. At 11 AM you can shoot the ep.3 alley with no queue.' },
+        drama: { label: 'K-drama romance', badge: 'SBS drama', title: 'Business Proposal romance route', sub: 'Gamgodang-gil, Anguk-dong, Seoul, 1.4 km on foot', guide: 'I will start with the Business Proposal spots. The ep.3 ending alley is 5 minutes away.', course: 'Business Proposal Anguk romance', lead: 'Three filming spots, in walking order.', best: '11 AM', crowdTitle: 'Quiet before the tour groups', crowd: 'Groups arrive at 3 PM. At 11 AM you can shoot the ep.3 alley with no queue.' },
         food: { label: 'Alley food', badge: 'Local food', title: 'Gamgodang-gil food alley walk', sub: '2 min from Anguk Station exit 3', guide: 'Food first? The dumpling queue is short before noon.', course: 'Gamgodang-gil food alley course', lead: 'An order that works when you are hungry.', best: '2 PM', crowdTitle: 'The dumpling queue clears after 2 PM', crowd: 'Expect a 20 minute wait from noon to 1:30 PM. After 2 PM you walk right in.' },
-        hanok: { label: 'Hanok cafe', badge: 'Hanok cafe', title: 'A slow afternoon in a hanok cafe', sub: 'Unbosan-gil alley, 1.1 km on foot', guide: 'Let us start with the hanok tea house. Window seats open around 2 PM.', course: 'Hanok cafe slow afternoon', lead: 'I left time to sit and rest.', best: '2 PM', crowdTitle: 'Window seats open at the tea house around 2 PM', crowd: 'By 4 PM the tea house is full. At 2 PM you can still take a window seat.' },
+        hanok: { label: 'Hanok cafe', badge: 'Hanok cafe', title: 'A slow afternoon in a hanok cafe', sub: 'Unbosan-gil alley, 1.1 km on foot', guide: 'Let us start with the hanok tea house. Window seats open around 2 PM.', course: 'Hanok cafe slow afternoon', lead: 'I left time to sit and rest.', best: '2 PM', crowdTitle: 'Window seats open at 2 PM', crowd: 'By 4 PM the tea house is full. At 2 PM you can still take a window seat.' },
         solo: { label: 'Solo walk', badge: 'Solo trip', title: 'Quiet Anguk alleys for a solo walk', sub: 'Best in the quiet morning, 1.3 km on foot', guide: 'I picked the streets with the fewest people. A good order to walk alone.', course: 'Solo walk in Anguk alleys', lead: 'I kept you out of the busy hours.', best: '10 AM', crowdTitle: '10 AM is the quietest for a solo walk', crowd: 'Before 11 AM the alleys are nearly empty, so your photos come out without a crowd.' },
         friends: { label: 'With friends', badge: 'With friends', title: 'A route made for photos with friends', sub: 'Film camera rental included, 1.5 km on foot', guide: 'I gathered the photogenic corners first. Three people fit perfectly.', course: 'Photo walk with friends', lead: 'Mostly places worth a photo.', best: '5 PM', crowdTitle: 'Golden hour at 5 PM is best for photos', crowd: 'The queue is long at 3 PM. At 5 PM the alley turns golden and the light is soft.' }
       },
@@ -204,7 +204,7 @@
       crowdNote: 'ソウル市の流動人口とカード売上、2026年11月',
       crowdBestDefault: '午前11時',
       crowdGuideTitleDefault: '午前11時か午後5時が空いています',
-      crowdGuideTextDefault: '好みを選ぶと、その好みに合う空いている時間を選び直すよ。',
+      crowdGuideTextDefault: '好みを選ぶと、空いている時間を選び直すよ。',
       qDrama: 'ドラマ', qRoute: '徒歩ルート', qSpots: 'ローカル', qMore: 'もっと',
       tabHome: 'ホーム', tabExplore: '探す', tabMap: '地図', tabSaved: '保存', tabRoute: 'ルート',
       tabSpots: 'スポット', tabReviews: 'レビュー', tabCrowd: '混雑度',
