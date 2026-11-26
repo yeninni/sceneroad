@@ -361,7 +361,7 @@ button{font-family:inherit}
 .rail__btn.is-active{background:var(--sky-500);border-color:var(--sky-500);color:#fff}
 .rail__btn.is-active b{background:rgba(255,255,255,.22);color:#fff}
 .stage__phone{width:398px;height:734px}
-.stage__phone .phone{zoom:1.42;cursor:default}
+.stage__phone .phone{transform:scale(1.42);transform-origin:top left;cursor:default}
 .stage__phone .phone:hover .phone__hover{opacity:0}
 .stage__phone .phone__hover{display:none}
 .stage__hint{margin:0 auto 34px;max-width:560px;text-align:center;font-size:11.5px;line-height:1.7;color:var(--sub-2)}
@@ -385,8 +385,8 @@ button{font-family:inherit}
   .board-hint{padding:0 20px}
   .brand__text em{display:none}
   .viewswitch__btn{padding:7px 11px;font-size:11.5px}
-  .stage__phone{width:294px;height:520px}
-  .stage__phone .phone{zoom:.95}
+  .stage__phone{width:266px;height:492px}
+  .stage__phone .phone{transform:scale(.95)}
 }
 
 @page{size:1324px 1134px;margin:0}
